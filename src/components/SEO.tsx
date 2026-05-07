@@ -33,44 +33,20 @@ export default function SEO({
   // Schema.org Structured Data
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": schemaType,
-    "name": siteName,
-    "alternateName": "CNSOUSA TEC",
-    "url": baseUrl,
-    "logo": `${baseUrl}/logo-clean.png`,
-    "image": `${baseUrl}/logo-clean.png`,
-    "description": "Especialista em Manutenção Elétrica, Eletrônica e Hidráulica em Brasília e Entorno. Atendimento 24h para residências e empresas.",
-    "telephone": "+5561992743428",
-    "email": "contato@cnsousatec.com.br",
+    "@type": "LocalBusiness",
+    "name": "Cnsousatec",
+    "description": "Manutenção elétrica, eletrônica e hidráulica 24h no DF",
+    "url": "https://www.cnsousatec.com.br",
+    "telephone": "+55-61-99274-3428",
+    "email": "Cnsousatec@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Brasília",
       "addressRegion": "DF",
       "addressCountry": "BR"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -15.7939,
-      "longitude": -47.8828
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://www.instagram.com/cnsousatec",
-      "https://www.facebook.com/cnsousatec"
-    ],
+    "areaServed": "Distrito Federal",
+    "openingHours": "Mo-Su 00:00-23:59",
     "priceRange": "$$"
   };
 

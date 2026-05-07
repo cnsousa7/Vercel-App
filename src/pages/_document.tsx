@@ -13,7 +13,7 @@ export default function Document() {
         <meta name="theme-color" content="#2563eb" />
         
         {/* Google Site Verification (Optional but recommended) */}
-        <meta name="google-site-verification" content="verification_token_here" />
+        <meta name="google-site-verification" content="2yoP5tDmsNpV_o8PcXiE9cTd6YSEwJsY99PcVtjufQ0" />
         
         {/* Logo for social media */}
         <meta property="og:image" content="/logo-clean.png" />
