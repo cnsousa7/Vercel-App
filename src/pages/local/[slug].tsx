@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { localidades, servicos, getLocalidadeBySlug } from '../../lib/localidades';
 import Head from 'next/head';
@@ -25,6 +27,18 @@ interface LocalPageProps {
 
 
 export default function LocalPage({ servico, servicoNome, localidade, localidadeNome, uf, foco, whatsappMsg, title, description }: LocalPageProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Se o slug na URL for diferente do slug canônico (ex: slug antigo), redireciona
+    const currentSlug = router.query.slug as string;
+    const canonicalSlug = `${servico}-${localidade}`;
+    
+    if (currentSlug && currentSlug !== canonicalSlug) {
+      router.replace(`/local/${canonicalSlug}`);
+    }
+  }, [router, servico, localidade]);
+
   return (
     <>
       <SEO
@@ -262,8 +276,38 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   let servicoKey = '';
   let localidadeSlug = '';
   
+  // Mapeamento de slugs antigos para novos (Redirecionamento 301 para SEO)
+  const slugMap: Record<string, string> = {
+    'santa-lucia': 'jardim-santa-lucia',
+    'mansoes-centro': 'mansoes-centro-oeste',
+    'parque-da-barragem': 'parque-da-barragem-setor-01',
+    'jardim-paraiso': 'residencial-jardim-paraiso',
+    'setor-01': 'parque-da-barragem-setor-01',
+    'setor-02': 'parque-da-barragem-setor-02',
+    'setor-03': 'parque-da-barragem-setor-03',
+    'setor-04': 'parque-da-barragem-setor-04',
+    'setor-05': 'parque-da-barragem-setor-05',
+    'setor-06': 'parque-da-barragem-setor-06',
+    'setor-07': 'parque-da-barragem-setor-07',
+    'setor-08': 'parque-da-barragem-setor-08',
+    'setor-09': 'parque-da-barragem-setor-09',
+    'setor-10': 'parque-da-barragem-setor-10',
+    'setor-11': 'parque-da-barragem-setor-11',
+    'setor-12': 'parque-da-barragem-setor-12',
+    'setor-13': 'parque-da-barragem-setor-13',
+    'setor-14': 'parque-da-barragem-setor-14',
+    'setor-15': 'parque-da-barragem-setor-15',
+    'setor-16': 'parque-da-barragem-setor-16',
+  };
+
   for (let i = parts.length - 1; i >= 0; i--) {
-    const possibleLocalidadeSlug = parts.slice(i).join('-');
+    let possibleLocalidadeSlug = parts.slice(i).join('-');
+    
+    // Verificar se é um slug antigo e mapear para o novo
+    if (slugMap[possibleLocalidadeSlug]) {
+      possibleLocalidadeSlug = slugMap[possibleLocalidadeSlug];
+    }
+
     const localidadeData = getLocalidadeBySlug(possibleLocalidadeSlug);
     
     if (localidadeData) {
@@ -284,6 +328,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const { nome: localidadeNome, uf, foco, whatsappMsg } = localidadeData;
+
+
 
   const title = `${popularTerm} em ${localidadeNome} ${uf} | CNSOUSATEC ®`;
   const description = `⚡ Procurando ${popularTerm} em ${localidadeNome} ${uf}? A CNSOUSATEC ® é especialista em ${servicoBase} com atendimento 24h urgente para residências e empresas em ${localidadeNome}. Orçamento Grátis. Ligue agora!`;

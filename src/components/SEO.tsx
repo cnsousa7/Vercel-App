@@ -27,7 +27,8 @@ export default function SEO({
     
   const fullTitle = optimizedTitle.includes(siteName) ? optimizedTitle : `${optimizedTitle} | ${siteName}`;
   const baseUrl = 'https://www.cnsousatec.com.br';
-  const canonicalUrl = (canonical || baseUrl).toLowerCase();
+  // Normalização rigorosa da URL canônica: minúsculo e sem barra no final
+  const canonicalUrl = (canonical || baseUrl).toLowerCase().replace(/\/$/, "");
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 
   // Schema.org Structured Data
