@@ -4,7 +4,7 @@ import ServiceSchema from '../../components/ServiceSchema';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
-import { Zap, CheckCircle, Phone, Shield, Clock, Award } from 'lucide-react';
+import { Zap, CheckCircle, Shield, Clock, Award } from 'lucide-react';
 import { ExpressQuoteCta, UrgentMaintenanceCta } from '../../components/cro/WhatsAppCta';
 
 export default function ManutencaoEletrica() {

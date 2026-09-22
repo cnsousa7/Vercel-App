@@ -4,7 +4,7 @@ import ServiceSchema from '../../components/ServiceSchema';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
-import { Wrench, CheckCircle, Phone, Droplet, Shield, Clock } from 'lucide-react';
+import { Wrench, CheckCircle, Droplet, Shield, Clock } from 'lucide-react';
 import { ExpressQuoteCta, UrgentMaintenanceCta } from '../../components/cro/WhatsAppCta';
 
 export default function ManutencaoHidraulica() {

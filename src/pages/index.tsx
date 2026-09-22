@@ -1,7 +1,5 @@
-import Head from 'next/head';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Zap, Shield, Clock, ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
+import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { UrgentMaintenanceCta, ExpressQuoteCta, MedicalEngineeringCta } from '../components/cro/WhatsAppCta';
 import Header from '../components/Header';
 import Footer from '../components/Footer';

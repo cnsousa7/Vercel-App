@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { localidades, servicos, getLocalidadeBySlug } from '../../lib/localidades';
-import Head from 'next/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Testimonials from '../../components/Testimonials';
@@ -23,14 +22,13 @@ interface LocalPageProps {
   localidadeNome: string;
   uf: 'DF' | 'GO';
   foco: string;
-  whatsappMsg: string;
   title: string;
   description: string;
 }
 
 
 
-export default function LocalPage({ servico, servicoNome, servicoBase, localidade, localidadeNome, uf, foco, whatsappMsg, title, description }: LocalPageProps) {
+export default function LocalPage({ servico, servicoNome, servicoBase, localidade, localidadeNome, uf, foco, title, description }: LocalPageProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -358,7 +356,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  const { nome: localidadeNome, uf, foco, whatsappMsg } = localidadeData;
+  const { nome: localidadeNome, uf, foco } = localidadeData;
 
   const title = `${popularTerm} em ${localidadeNome} | Atendimento ${uf} | CNSOUSATEC`;
   const description = `${popularTerm} em ${localidadeNome}, ${uf}: ${servicoBase} para residências e empresas, com equipe local e orçamento expresso. Fale com a CNSOUSATEC agora.`;
@@ -372,7 +370,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       localidadeNome,
       uf,
       foco,
-      whatsappMsg,
       title,
       description,
     },
