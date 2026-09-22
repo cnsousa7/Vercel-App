@@ -1,0 +1,488 @@
+.virtual-assistant-trigger {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(5.75rem + env(safe-area-inset-bottom));
+  z-index: 2147483001;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+  box-shadow: 0 0.75rem 2rem rgb(37 99 235 / 0.32);
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.virtual-assistant-trigger:hover,
+.virtual-assistant-trigger:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2.2rem rgb(20 83 45 / 0.4);
+  filter: brightness(1.05);
+}
+
+.virtual-assistant-trigger:focus-visible,
+.virtual-assistant-close:focus-visible,
+.virtual-assistant-options button:focus-visible,
+.virtual-assistant-whatsapp:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
+
+.virtual-assistant-panel {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(10rem + env(safe-area-inset-bottom));
+  z-index: 2147483002;
+  display: flex;
+  flex-direction: column;
+  width: min(23rem, calc(100vw - 2rem));
+  max-height: min(39rem, calc(100dvh - 11rem - env(safe-area-inset-bottom)));
+  overflow: hidden;
+  border: 1px solid rgb(148 163 184 / 0.34);
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 1.5rem 4rem rgb(15 23 42 / 0.25);
+  animation: virtual-assistant-fade-in 220ms ease-out both;
+}
+
+.virtual-assistant-header,
+.virtual-assistant-progress,
+.virtual-assistant-actions {
+  flex-shrink: 0;
+}
+
+.virtual-assistant-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.15rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+}
+
+.virtual-assistant-header > div {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.virtual-assistant-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.virtual-assistant-header p {
+  margin: 0.25rem 0 0;
+  color: #dbeafe;
+  font-size: 0.75rem;
+}
+
+.virtual-assistant-status {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #4ade80;
+  box-shadow: 0 0 0 0.2rem rgb(74 222 128 / 0.2);
+}
+
+.virtual-assistant-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  background: rgb(255 255 255 / 0.12);
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.virtual-assistant-close:hover {
+  background: rgb(255 255 255 / 0.24);
+}
+
+.virtual-assistant-progress {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem;
+  color: #475569;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.virtual-assistant-progress > div {
+  height: 0.35rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dbeafe;
+}
+
+.virtual-assistant-progress i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  transition: width 220ms ease;
+}
+
+.virtual-assistant-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.virtual-assistant-message {
+  max-width: 88%;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  animation: virtual-assistant-message-in 220ms ease-out both;
+}
+
+.virtual-assistant-message--bot {
+  align-self: flex-start;
+  border-bottom-left-radius: 0.25rem;
+  color: #1e293b;
+  background: #ffffff;
+  box-shadow: 0 0.25rem 0.75rem rgb(15 23 42 / 0.07);
+}
+
+.virtual-assistant-message--user {
+  align-self: flex-end;
+  border-bottom-right-radius: 0.25rem;
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.virtual-assistant-actions {
+  padding: 0.85rem 1rem 1rem;
+  background: #ffffff;
+}
+
+.virtual-assistant-options {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.virtual-assistant-option,
+.virtual-assistant-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.7rem;
+  color: #1d4ed8;
+  background: #eff6ff;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 750;
+  text-align: center;
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.virtual-assistant-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 0.7rem;
+  padding: 0.8rem 2.65rem 0.8rem 0.9rem;
+  text-align: left;
+}
+
+.virtual-assistant-option span {
+  line-height: 1.25;
+}
+
+.virtual-assistant-option small {
+  grid-column: 1 / -1;
+  color: #475569;
+  font-size: 0.73rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.virtual-assistant-option svg {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  transform: translateY(-50%);
+}
+
+.virtual-assistant-options--compact .virtual-assistant-option {
+  min-height: 2.5rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.virtual-assistant-options button:hover {
+  color: #ffffff;
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.virtual-assistant-options button:hover small {
+  color: #dbeafe;
+}
+
+.virtual-assistant-whatsapp {
+  gap: 0.5rem;
+  border-color: #16a34a;
+  color: #ffffff;
+  background: #16a34a;
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1rem rgb(22 163 74 / 0.22);
+}
+
+.virtual-assistant-whatsapp:hover {
+  color: #ffffff;
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.virtual-assistant-photo-step {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.virtual-assistant-photo-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.virtual-assistant-photo-upload,
+.virtual-assistant-photo-continue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid #2563eb;
+  border-radius: 0.7rem;
+  color: #ffffff;
+  background: #2563eb;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.virtual-assistant-photo-continue {
+  border-color: #16a34a;
+  background: #16a34a;
+}
+
+.virtual-assistant-photo-upload:hover:not(:disabled),
+.virtual-assistant-photo-continue:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.virtual-assistant-photo-continue:hover {
+  background: #15803d;
+}
+
+.virtual-assistant-photo-upload:disabled,
+.virtual-assistant-photo-skip:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.virtual-assistant-photo-help,
+.virtual-assistant-photo-error,
+.virtual-assistant-photo-success {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.virtual-assistant-photo-help {
+  color: #64748b;
+}
+
+.virtual-assistant-photo-error {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.virtual-assistant-photo-success {
+  color: #166534;
+  font-weight: 700;
+}
+
+.virtual-assistant-photo-actions {
+  display: grid;
+}
+
+.virtual-assistant-photo-skip {
+  justify-self: center;
+  padding: 0.25rem;
+  border: 0;
+  color: #475569;
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.virtual-assistant-photo-skip:hover:not(:disabled) {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+.virtual-assistant-spin {
+  animation: virtual-assistant-spin 700ms linear infinite;
+}
+
+.virtual-assistant-complete {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.virtual-assistant-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.75rem;
+  color: #166534;
+  background: #f0fdf4;
+}
+
+.virtual-assistant-summary div {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.virtual-assistant-summary strong {
+  font-size: 0.82rem;
+}
+
+.virtual-assistant-summary span {
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.virtual-assistant-summary small {
+  color: #15803d;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.virtual-assistant-restart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.25rem;
+  border: 0;
+  color: #64748b;
+  background: transparent;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.virtual-assistant-restart:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+@keyframes virtual-assistant-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes virtual-assistant-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes virtual-assistant-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .virtual-assistant-trigger {
+    right: 0.75rem;
+    bottom: calc(5rem + env(safe-area-inset-bottom));
+    min-height: 3rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .virtual-assistant-panel {
+    right: 0.75rem;
+    bottom: calc(9.25rem + env(safe-area-inset-bottom));
+    width: calc(100vw - 1.5rem);
+    max-height: calc(100dvh - 10rem - env(safe-area-inset-bottom));
+    border-radius: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .virtual-assistant-panel,
+  .virtual-assistant-message {
+    animation: none;
+  }
+
+  .virtual-assistant-trigger,
+  .virtual-assistant-options button,
+  .virtual-assistant-whatsapp,
+  .virtual-assistant-photo-upload,
+  .virtual-assistant-photo-continue,
+  .virtual-assistant-progress i {
+    transition: none;
+  }
+}

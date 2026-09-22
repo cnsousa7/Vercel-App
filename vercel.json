@@ -1,0 +1,130 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/local/manutencao-hidraulica-lago-sul",
+      "destination": "/local/manutencao-hidraulica-qi-01",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-aguas-claras",
+      "destination": "/local/manutencao-eletronica-aguas-claras-sul",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-setor-01",
+      "destination": "/local/manutencao-eletrica-parque-da-barragem-setor-01",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-santa-lucia",
+      "destination": "/local/manutencao-eletrica-jardim-santa-lucia",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-taguatinga",
+      "destination": "/local/manutencao-eletrica-taguatinga-centro",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-parque-da-barragem",
+      "destination": "/local/manutencao-eletrica-parque-da-barragem-setor-01",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-lago-norte",
+      "destination": "/local/manutencao-eletrica-qi-03",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-jardim-barragem",
+      "destination": "/local/manutencao-eletrica-jardim-da-barragem-i",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-perola",
+      "destination": "/local/manutencao-eletronica-jardim-perola-da-barragem-i",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-mansoes-centro",
+      "destination": "/local/manutencao-hidraulica-mansoes-centro-oeste",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-parque-da-barragem",
+      "destination": "/local/manutencao-hidraulica-parque-da-barragem-setor-01",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-mansoes-centro",
+      "destination": "/local/manutencao-eletronica-mansoes-centro-oeste",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-vicente-pires",
+      "destination": "/local/manutencao-eletrica-rua-03",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-setor-02",
+      "destination": "/local/manutencao-hidraulica-parque-da-barragem-setor-02",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-perola",
+      "destination": "/local/manutencao-eletrica-jardim-perola-da-barragem-i",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-setor-05",
+      "destination": "/local/manutencao-hidraulica-parque-da-barragem-setor-05",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-jardim-paraiso",
+      "destination": "/local/manutencao-eletronica-residencial-jardim-paraiso",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-setor-01",
+      "destination": "/local/manutencao-hidraulica-parque-da-barragem-setor-01",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletrica-setor-03",
+      "destination": "/local/manutencao-eletrica-parque-da-barragem-setor-03",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-santa-lucia",
+      "destination": "/local/manutencao-eletronica-jardim-santa-lucia",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-taguatinga",
+      "destination": "/local/manutencao-hidraulica-taguatinga-centro",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-setor-08",
+      "destination": "/local/manutencao-hidraulica-parque-da-barragem-setor-08",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-eletronica-setor-05",
+      "destination": "/local/manutencao-eletronica-parque-da-barragem-setor-05",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-aguas-claras",
+      "destination": "/local/manutencao-hidraulica-aguas-claras-sul",
+      "permanent": true
+    },
+    {
+      "source": "/local/manutencao-hidraulica-jardim-barragem",
+      "destination": "/local/manutencao-hidraulica-jardim-da-barragem-i",
+      "permanent": true
+    }
+  ]
+}

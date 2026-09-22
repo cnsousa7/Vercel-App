@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { getGeneralWhatsAppUrl } from './cro/whatsapp';
+import { trackWhatsAppClick } from '../lib/analytics';
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
@@ -105,6 +106,7 @@ export default function Header() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick({ placement: 'header_desktop', label: 'Orçamento' })}
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
             >
               Orçamento
@@ -167,8 +169,11 @@ export default function Header() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                trackWhatsAppClick({ placement: 'header_mobile', label: 'Orçamento WhatsApp' });
+                setMobileMenuOpen(false);
+              }}
               className="block bg-blue-600 text-white px-6 py-3 rounded-lg font-bold text-center"
-              onClick={() => setMobileMenuOpen(false)}
             >
               Orçamento WhatsApp
             </a>

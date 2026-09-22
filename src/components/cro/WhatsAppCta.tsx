@@ -1,4 +1,5 @@
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, MouseEventHandler, ReactNode } from "react";
+import { trackWhatsAppClick } from "../../lib/analytics";
 import {
   getGeneralWhatsAppUrl,
   getMedicalWhatsAppUrl,
@@ -41,17 +42,27 @@ export function WhatsAppCta({
   children,
   href,
   className = "",
+  onClick,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   href?: string;
 }) {
+  const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    trackWhatsAppClick({
+      placement: 'cta',
+      label: typeof children === 'string' ? children : undefined,
+    });
+    onClick?.(event);
+  };
+
   return (
     <a
       className={`cns-whatsapp-cta ${className}`.trim()}
       href={href ?? getGeneralWhatsAppUrl()}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       {...props}
     >
       <WhatsAppIcon size={20} title="" />

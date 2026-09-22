@@ -1,7 +1,9 @@
 import '@/styles/globals.css';
 import '@/styles/cnsousatec-cro.css';
+import '@/styles/virtual-assistant.css';
 import type { AppProps } from 'next/app';
 import { WhatsAppFloatingButton } from '../components/cro/WhatsAppFloatingButton';
+import VirtualAssistant from '../components/VirtualAssistant';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -41,6 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
           <Component {...pageProps} />
           <WhatsAppFloatingButton />
+          <VirtualAssistant />
           <SpeedInsights />
         </>
       ) : (
