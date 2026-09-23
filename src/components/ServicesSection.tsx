@@ -18,7 +18,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Reparos rápidos, instalações seguras e manutenção elétrica essencial com o melhor custo da região.",
       icon: <Zap className="w-8 h-8 text-blue-600" />,
       link: "/servicos/manutencao-eletrica",
-      image: "/images/eletrica.jpg"
+      image: "/optimized/images/eletrica.webp"
     },
     {
       title: "Manutenção Hidráulica",
@@ -27,7 +27,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Consertos de vazamentos, limpeza de caixas d'água e manutenção hidráulica residencial ágil e acessível.",
       icon: <Clock className="w-8 h-8 text-cyan-600" />,
       link: "/servicos/manutencao-hidraulica",
-      image: "/images/hidraulica.jpg"
+      image: "/optimized/images/hidraulica.webp"
     },
     {
       title: "Manutenção Eletrônica",
@@ -36,7 +36,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Reparo de portões eletrônicos, câmeras de segurança e manutenção de equipamentos eletrônicos do dia a dia.",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       link: "/servicos/manutencao-eletronica",
-      image: "/images/eletronica.jpg"
+      image: "/optimized/images/eletronica.webp"
     }
   ];
 

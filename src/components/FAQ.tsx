@@ -43,7 +43,10 @@ export default function FAQ({ items, title = "Perguntas Frequentes", includeSche
           {items.map((item, index) => (
             <div key={index} className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
               <button
+                id={`faq-question-${index}`}
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-answer-${index}`}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <span className="font-semibold text-gray-900 dark:text-white">{item.question}</span>
@@ -51,6 +54,9 @@ export default function FAQ({ items, title = "Perguntas Frequentes", includeSche
               </button>
               {activeIndex === index && (
                 <motion.div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   className="px-6 pb-4 text-gray-600 dark:text-gray-400"

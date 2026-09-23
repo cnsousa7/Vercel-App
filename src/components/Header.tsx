@@ -35,7 +35,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-blue-600">
               <Image
-                src="/logo-clean.png"
+                src="/optimized/logo-clean.webp"
                 alt="Cnsousatec logo"
                 fill
                 className="object-cover"
@@ -53,14 +53,17 @@ export default function Header() {
             </Link>
 
             <div className="relative">
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
-              >
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  aria-expanded={servicesOpen}
+                  aria-controls="desktop-services-menu"
+                  aria-haspopup="true"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
+                >
                 Serviços <ChevronDown className="w-4 h-4" />
               </button>
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg py-2 z-50 border dark:border-gray-700">
+                <div id="desktop-services-menu" className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg py-2 z-50 border dark:border-gray-700">
                   <Link href="/servicos/manutencao-eletrica" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
                     Manutenção Elétrica
                   </Link>
@@ -127,6 +130,9 @@ export default function Header() {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               className="p-2 text-gray-700 dark:text-gray-300"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -136,7 +142,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 border-t dark:border-gray-800 pt-4">
+          <div id="mobile-navigation" className="md:hidden mt-4 pb-4 space-y-4 border-t dark:border-gray-800 pt-4">
             <Link href="/" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
               Início
             </Link>
