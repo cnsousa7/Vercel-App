@@ -35,7 +35,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-blue-600">
               <Image
-                src="/CNSOUSATEC-logo-restored.webp"
+                src="/CNSOUSATEC-mark.webp"
                 alt="Cnsousatec logo"
                 fill
                 className="object-cover"

@@ -12,15 +12,15 @@ A nova imagem foi integrada somente nos pontos que exibem a marca ou a publicam 
 | --- | --- | --- |
 | Formato principal | PNG | PNG restaurado e WebP derivado |
 | Resolução | 1280 × 800 px no `logo-clean.png` usado pelo site | 1296 × 1213 px na referência restaurada |
-| Uso visual | Logo circular recortada em cabeçalho e rodapé | `CNSOUSATEC-logo-restored.webp` |
+| Uso visual | Logo circular recortada em cabeçalho e rodapé | `CNSOUSATEC-mark.webp`, 1024 × 1024 px |
 | Uso social e estruturado | `logo-clean.png` | `CNSOUSATEC-logo-restored.png` |
 | Vetor SVG | Não criado | A referência contém textura, iluminação, circuitos e tipografia metálica; um SVG desenhado manualmente não seria visualmente equivalente sem simplificar a marca |
 
-A versão PNG restaurada tem aproximadamente 2,2 MB. A versão WebP tem aproximadamente 325 KB e mantém as mesmas dimensões de 1296 × 1213 px. O WebP é usado somente na renderização visual do cabeçalho e rodapé; o PNG preserva a qualidade máxima para Open Graph e dados estruturados.
+A versão PNG restaurada tem aproximadamente 2,2 MB. A versão WebP completa tem aproximadamente 325 KB e mantém as dimensões de 1296 × 1213 px. Para o espaço reduzido do cabeçalho e rodapé, foi criado o `CNSOUSATEC-mark.webp`, um recorte quadrado de 1024 × 1024 px que contém somente o emblema circular e o lettering central “CNSOUSA TEC”. Essa decisão evita comprimir o wordmark inferior em 32–40 px. O PNG completo preserva a qualidade máxima para Open Graph e dados estruturados.
 
 ## Implementação
 
-O cabeçalho e o rodapé agora carregam `/CNSOUSATEC-logo-restored.webp`. O documento HTML usa `/CNSOUSATEC-logo-restored.png` para a imagem Open Graph. O componente de SEO e os schemas de negócio local e de serviço também passaram a referenciar o PNG restaurado.
+O cabeçalho e o rodapé agora carregam `/CNSOUSATEC-mark.webp`. O documento HTML usa `/CNSOUSATEC-logo-restored.png` para a imagem Open Graph. O componente de SEO e os schemas de negócio local e de serviço também passaram a referenciar o PNG restaurado.
 
 O favicon e os ícones do aplicativo foram preservados. Eles usam formatos e dimensões próprias para ícones pequenos, e a imagem principal restaurada possui proporção retangular; substituí-los diretamente poderia deformar a marca em contextos que exigem um ícone quadrado.
 
