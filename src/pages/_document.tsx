@@ -16,7 +16,7 @@ export default function Document() {
         <meta name="google-site-verification" content="2yoP5tDmsNpV_o8PcXiE9cTd6YSEwJsY99PcVtjufQ0" />
         
         {/* Logo for social media */}
-        <meta property="og:image" content="/logo-clean.png" />
+        <meta property="og:image" content="/CNSOUSATEC-logo-restored.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

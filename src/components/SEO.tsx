@@ -20,7 +20,7 @@ export default function SEO({
   title,
   description,
   canonical,
-  ogImage = '/logo-clean.png',
+  ogImage = '/CNSOUSATEC-logo-restored.png',
   ogType = 'website',
   noindex = false,
   schemaType = 'LocalBusiness',
@@ -49,7 +49,7 @@ export default function SEO({
     url: baseUrl,
     telephone: '+55-61-99274-3428',
     email: 'Cnsousatec@gmail.com',
-    image: `${baseUrl}/logo-clean.png`,
+    image: `${baseUrl}/CNSOUSATEC-logo-restored.png`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Brasília',
