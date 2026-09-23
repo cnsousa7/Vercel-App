@@ -10,7 +10,7 @@ interface ServiceSchemaProps {
 const siteUrl = 'https://www.cnsousatec.com.br';
 const organizationId = `${siteUrl}/#organization`;
 const businessId = `${siteUrl}/#local-business`;
-const logoUrl = `${siteUrl}/logo-clean.png`;
+const logoUrl = `${siteUrl}/CNSOUSATEC-logo-restored.png`;
 
 const serviceAreaDescription = [
   { '@type': 'AdministrativeArea', name: 'Distrito Federal' },
