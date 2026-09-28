@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         {/* Favicon and app icons */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/logo-clean.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/CNSOUSATEC-mark.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />

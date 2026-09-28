@@ -87,7 +87,7 @@ export default function SEO({
       {noindex && <meta name="robots" content="noindex,nofollow" />}
 
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <link rel="icon" href="/logo-clean.png" type="image/png" />
+      <link rel="icon" href="/CNSOUSATEC-mark.png" type="image/png" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="canonical" href={canonicalUrl} />

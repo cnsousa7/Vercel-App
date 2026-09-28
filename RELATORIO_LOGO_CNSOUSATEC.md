@@ -24,6 +24,10 @@ O cabeçalho e o rodapé agora carregam `/CNSOUSATEC-mark.webp`. O documento HTM
 
 O favicon e os ícones do aplicativo foram preservados. Eles usam formatos e dimensões próprias para ícones pequenos, e a imagem principal restaurada possui proporção retangular; substituí-los diretamente poderia deformar a marca em contextos que exigem um ícone quadrado.
 
+## Auditoria de referências antigas
+
+A auditoria final encontrou referências legadas a `logo-clean.png` no manifest, no documento HTML e no componente de SEO. Todas foram substituídas por `CNSOUSATEC-mark.png`. Os arquivos antigos `logo-clean.png`, `logo-high-res.png`, `logo.jpg` e suas versões WebP em `public/optimized` não tinham uso efetivo restante e foram removidos para evitar que uma logo obsoleta continue sendo servida publicamente.
+
 Não foram necessários ajustes de CSS. O cabeçalho e o rodapé continuam usando dimensões responsivas, `fill` e `object-cover`, mantendo o enquadramento circular já existente. A troca foi limitada ao arquivo de origem da imagem.
 
 ## Qualidade e validação
