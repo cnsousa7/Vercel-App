@@ -56,6 +56,39 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
+            <div className="mt-6 max-w-[13rem] rounded-2xl border border-gray-200 bg-gray-50 p-3 dark:border-gray-700 dark:bg-gray-800">
+              <a
+                href="https://instagram.com/cnsousatec"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Acessar o Instagram da Cnsousatec pelo QR Code"
+                className="block rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+              >
+                <Image
+                  src="/cnsousatec_qr.webp"
+                  alt="QR Code para acessar o Instagram da Cnsousatec"
+                  width={1782}
+                  height={2048}
+                  sizes="(max-width: 767px) 176px, 190px"
+                  className="h-auto w-full rounded-lg"
+                />
+              </a>
+              <p className="mt-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
+                Siga a Cnsousatec no Instagram
+              </p>
+              <p className="mt-1 text-xs leading-5 text-gray-600 dark:text-gray-400">
+                Aponte a câmera do celular para o QR Code e acompanhe nossos serviços, dicas e novidades.
+              </p>
+              <a
+                href="https://instagram.com/cnsousatec"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Seguir a Cnsousatec no Instagram"
+                className="mt-3 inline-flex text-sm font-bold text-blue-700 underline decoration-2 underline-offset-2 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-200"
+              >
+                Seguir no Instagram
+              </a>
+            </div>
           </div>
 
           {/* Serviços */}
