@@ -4,15 +4,15 @@ import ServiceSchema from '../../components/ServiceSchema';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
-import { Cpu, CheckCircle, Phone, Wrench, Zap, Settings } from 'lucide-react';
+import { Cpu, CheckCircle, Wrench, Zap, Settings } from 'lucide-react';
 import { ExpressQuoteCta, UrgentMaintenanceCta, MedicalEngineeringCta } from '../../components/cro/WhatsAppCta';
 
 export default function ManutencaoEletronica() {
   return (
     <>
       <SEO
-        title="Técnico em Eletrônica Brasília e Águas Lindas | CNSOUSATEC ®"
-        description="🛠️ CNSOUSATEC: Técnico em Eletrônica para Conserto de Placas, Portões Eletrônicos e Equipamentos Industriais em Brasília e Águas Lindas. Assistência Técnica Especializada. Confira!"
+        title="Manutenção em Equipamentos de Engenharia Clínica | CNSOUSATEC"
+        description="Suporte técnico para placas, automação e equipamentos médico-hospitalares em Brasília e DF. Especialistas B2B em engenharia clínica. Solicite atendimento agora."
         canonical="https://www.cnsousatec.com.br/servicos/manutencao-eletronica"
       />
       <ServiceSchema 

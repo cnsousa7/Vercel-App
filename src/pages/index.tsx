@@ -1,7 +1,5 @@
-import Head from 'next/head';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Zap, Shield, Clock, ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
+import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { UrgentMaintenanceCta, ExpressQuoteCta, MedicalEngineeringCta } from '../components/cro/WhatsAppCta';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -11,15 +9,31 @@ import SchemaLocalBusiness from '../components/SchemaLocalBusiness';
 import SEO from '../components/SEO';
 import FAQ from '../components/FAQ';
 
+const conversionFaq = [
+  {
+    question: 'A CNSOUSATEC atende emergências 24 horas?',
+    answer: 'Sim. A CNSOUSATEC atende emergências elétricas e hidráulicas 24 horas em Brasília, no Distrito Federal e no Entorno, com triagem rápida pelo WhatsApp e encaminhamento para a equipe técnica.',
+  },
+  {
+    question: 'Fazem manutenção em equipamentos médico-hospitalares?',
+    answer: 'Sim. Nossa equipe oferece suporte técnico especializado em engenharia clínica e manutenção de equipamentos médico-hospitalares, com atendimento para empresas, clínicas e hospitais.',
+  },
+  {
+    question: 'Vocês atendem em quais regiões?',
+    answer: 'Atendemos Brasília e as regiões administrativas do Distrito Federal, além do Entorno, incluindo Águas Lindas de Goiás. Consulte a equipe para confirmar a disponibilidade na sua localidade.',
+  },
+];
+
 const fastTransition = { duration: 0.3, ease: "easeOut" as const };
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Cnsousatec - Manutenção Elétrica, Eletrônica e Hidráulica 24h no DF"
-        description="⚡ Precisando de Manutenção? Atendimento Rápido 24h em Brasília e DF. Elétrica, Eletrônica e Hidráulica para Empresas e Residências. Orçamento Grátis!"
+        title="Emergência Elétrica e Hidráulica 24h no DF | Atendimento Rápido | CNSOUSATEC"
+        description="CNSOUSATEC: manutenção elétrica, hidráulica, eletrônica e engenharia clínica 24h em Brasília, DF e Entorno. Especialistas e orçamento expresso. Ligue agora."
         canonical="https://www.cnsousatec.com.br"
+        faqItems={conversionFaq}
       />
 
       <SchemaLocalBusiness />
@@ -90,30 +104,7 @@ export default function Home() {
 
         <Testimonials uf="DF" />
 
-        <FAQ 
-          items={[
-            {
-              question: "Qual o tempo de resposta para atendimentos de emergência?",
-              answer: "Para casos de urgência elétrica ou hidráulica em Brasília e DF, nosso tempo médio de chegada é de 30 a 60 minutos, dependendo da sua localização."
-            },
-            {
-              question: "Vocês atendem aos finais de semana e feriados?",
-              answer: "Sim! Oferecemos atendimento de emergência 24 horas por dia, 7 dias por semana, incluindo domingos e feriados em todo o Distrito Federal."
-            },
-            {
-              question: "A Cnsousatec oferece garantia nos serviços prestados?",
-              answer: "Com certeza. Todos os nossos serviços de manutenção elétrica, eletrônica e hidráulica possuem garantia técnica. O prazo varia conforme o tipo de serviço executado."
-            },
-            {
-              question: "Quais formas de pagamento são aceitas?",
-              answer: "Aceitamos diversas formas de pagamento: PIX, cartões de crédito e débito (com parcelamento disponível), além de faturamento para empresas e condomínios."
-            },
-            {
-              question: "Os técnicos são qualificados?",
-              answer: "Sim, todos os nossos profissionais são altamente qualificados, possuem certificações técnicas (como NR-10 para elétrica) e passam por treinamentos constantes."
-            }
-          ]}
-        />
+        <FAQ items={conversionFaq} includeSchema={false} />
 
         {/* Contact Section */}
         <section id="contato" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800/50 transition-colors duration-300 relative overflow-hidden">

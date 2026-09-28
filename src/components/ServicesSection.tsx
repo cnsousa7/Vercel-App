@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Zap, Shield, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ServicesSectionProps {
   uf?: 'DF' | 'GO';
@@ -17,7 +18,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Reparos rápidos, instalações seguras e manutenção elétrica essencial com o melhor custo da região.",
       icon: <Zap className="w-8 h-8 text-blue-600" />,
       link: "/servicos/manutencao-eletrica",
-      image: "/images/eletrica.jpg"
+      image: "/optimized/images/eletrica.webp"
     },
     {
       title: "Manutenção Hidráulica",
@@ -26,7 +27,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Consertos de vazamentos, limpeza de caixas d'água e manutenção hidráulica residencial ágil e acessível.",
       icon: <Clock className="w-8 h-8 text-cyan-600" />,
       link: "/servicos/manutencao-hidraulica",
-      image: "/images/hidraulica.jpg"
+      image: "/optimized/images/hidraulica.webp"
     },
     {
       title: "Manutenção Eletrônica",
@@ -35,7 +36,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
         : "Reparo de portões eletrônicos, câmeras de segurança e manutenção de equipamentos eletrônicos do dia a dia.",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       link: "/servicos/manutencao-eletronica",
-      image: "/images/eletronica.jpg"
+      image: "/optimized/images/eletronica.webp"
     }
   ];
 
@@ -59,20 +60,22 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100 dark:border-gray-700 overflow-hidden"
+              className="cns-service-card bg-white dark:bg-gray-900 rounded-xl shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
               <div className="p-8">
                 <div className="mb-6">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">{service.desc}</p>
-                <Link href={service.link} className="text-blue-600 dark:text-blue-400 font-semibold inline-flex items-center gap-2 hover:underline">
+                <Link href={service.link} className="cns-service-card__link text-blue-600 dark:text-blue-400 font-semibold inline-flex items-center gap-2 hover:underline">
                   Saiba mais <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

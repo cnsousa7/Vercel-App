@@ -260,3 +260,62 @@
     transition: none;
   }
 }
+
+/* Micro-interações para aumentar a percepção de interatividade e os cliques internos. */
+.cns-service-card {
+  position: relative;
+  transform: translateY(0);
+  transition: transform 220ms var(--cns-ease-out), box-shadow 220ms var(--cns-ease-out), border-color 220ms var(--cns-ease-out);
+}
+
+.cns-service-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0.2rem;
+  content: '';
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #9333ea);
+  opacity: 0;
+  transform: scaleX(0.35);
+  transform-origin: center;
+  transition: opacity 220ms var(--cns-ease-out), transform 220ms var(--cns-ease-out);
+}
+
+.cns-service-card:hover,
+.cns-service-card:focus-within {
+  border-color: rgb(59 130 246 / 0.42);
+  box-shadow: 0 1.25rem 2.5rem rgb(15 23 42 / 0.16);
+  transform: translateY(-0.35rem) scale(1.012);
+}
+
+.cns-service-card:hover::after,
+.cns-service-card:focus-within::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.cns-service-card__link {
+  position: relative;
+  transition: color 180ms var(--cns-ease-out), transform 180ms var(--cns-ease-out);
+}
+
+.cns-service-card__link:hover,
+.cns-service-card__link:focus-visible {
+  color: #1d4ed8;
+  transform: translateX(0.25rem);
+}
+
+.cns-service-card__link:focus-visible {
+  border-radius: 0.35rem;
+  outline: 3px solid var(--cns-focus);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cns-service-card,
+  .cns-service-card::after,
+  .cns-service-card__link {
+    transition: none;
+  }
+}

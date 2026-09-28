@@ -4,15 +4,15 @@ import ServiceSchema from '../../components/ServiceSchema';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
-import { Zap, CheckCircle, Phone, Shield, Clock, Award } from 'lucide-react';
+import { Zap, CheckCircle, Shield, Clock, Award } from 'lucide-react';
 import { ExpressQuoteCta, UrgentMaintenanceCta } from '../../components/cro/WhatsAppCta';
 
 export default function ManutencaoEletrica() {
   return (
     <>
       <SEO
-        title="Eletricista 24h Brasília e Águas Lindas | CNSOUSATEC ® Elétrica"
-        description="⚡ Procurando Eletricista em Brasília ou Águas Lindas? A CNSOUSATEC ® é especialista em Elétrica Residencial e Predial, Curto-Circuito e Instalações. Eletricista de Emergência 24h com Orçamento Grátis. Ligue!"
+        title="Eletricista 24h em Brasília e DF | Emergência CNSOUSATEC"
+        description="Eletricista 24h para curto-circuito, quadros e instalações em Brasília e DF. Equipe qualificada, resposta rápida e orçamento expresso. Ligue agora."
         canonical="https://www.cnsousatec.com.br/servicos/manutencao-eletrica"
       />
       <ServiceSchema 
