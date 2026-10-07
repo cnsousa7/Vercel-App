@@ -30,23 +30,19 @@ if (localidades.length === 0) {
   process.exit(1);
 }
 
-// URLs estáticas com prioridade máxima
+// URLs principais do site. O sitemap deve listar apenas URLs canônicas e indexáveis.
 const staticUrls = [
-  { url: '', priority: '1.0', changefreq: 'daily' },
-  { url: '/servicos/manutencao-eletrica', priority: '1.0', changefreq: 'daily' },
-  { url: '/servicos/manutencao-eletronica', priority: '1.0', changefreq: 'daily' },
-  { url: '/servicos/manutencao-hidraulica', priority: '1.0', changefreq: 'daily' },
+  '',
+  '/servicos/manutencao-eletrica',
+  '/servicos/manutencao-eletronica',
+  '/servicos/manutencao-hidraulica',
 ];
 
-// Gerar URLs dinâmicas com prioridade alta para indexação rápida
+// As páginas locais só devem ser incluídas enquanto forem páginas canônicas válidas.
 const dynamicUrls = [];
 servicos.forEach(servico => {
   localidades.forEach(localidade => {
-    dynamicUrls.push({
-      url: `/local/${servico}-${localidade}`,
-      priority: '0.9',
-      changefreq: 'daily'
-    });
+    dynamicUrls.push(`/local/${servico}-${localidade}`);
   });
 });
 
@@ -55,12 +51,9 @@ const allUrls = [...staticUrls, ...dynamicUrls];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${allUrls
-  .map(({ url, priority, changefreq }) => {
+  .map(url => {
     return `  <url>
     <loc>${baseUrl}${url}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
   </url>`;
   })
   .join('\n')}

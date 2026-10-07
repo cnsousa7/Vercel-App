@@ -4,7 +4,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { localidades, servicos, getLocalidadeBySlug } from '../../lib/localidades';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Testimonials from '../../components/Testimonials';
 import ServicesSection from '../../components/ServicesSection';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, CheckCircle } from 'lucide-react';
@@ -36,7 +35,7 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
     // Se o slug na URL for diferente do slug canônico (ex: slug antigo), redireciona
     const currentSlug = router.query.slug as string;
     const canonicalSlug = `${servico}-${localidade}`;
-    
+
     if (currentSlug && currentSlug !== canonicalSlug) {
       router.replace(`/local/${canonicalSlug}`);
     }
@@ -64,11 +63,11 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
 
       <main>
         <div className="container mx-auto px-4">
-          <Breadcrumbs 
+          <Breadcrumbs
             items={[
               { label: servicoNome, href: `/servicos/${servico}` },
               { label: localidadeNome, href: `/local/${servico}-${localidade}` }
-            ]} 
+            ]}
           />
         </div>
 
@@ -119,18 +118,18 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                 </h2>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A <strong>CNSOUSATEC ®</strong> é referência em <strong>{servicoNome}</strong> na região de <strong>{localidadeNome}</strong>. 
-                  Nossa equipe técnica está estrategicamente posicionada para oferecer o atendimento mais rápido em {localidadeNome}, seja para uma emergência residencial ou manutenção em grandes condomínios e empresas.
+                  A <strong>CNSOUSATEC</strong> oferece atendimento técnico em <strong>{servicoNome}</strong> para a região de <strong>{localidadeNome}</strong>.
+                  O foco informado para esta localidade é <strong>{foco}</strong>; confirme disponibilidade, escopo e prazo diretamente durante a triagem.
                 </p>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                   {uf === 'DF' ? (
                     <>
-                      Entendemos a sofisticação e as normas exigidas nos projetos de <strong>{localidadeNome}</strong>. Nossa equipe é especializada em manutenções que preservam a estética e a segurança de residências de alto padrão, garantindo conformidade total com as normas técnicas brasileiras.
+                      Para solicitações em <strong>{localidadeNome}</strong>, o atendimento deve considerar as características do imóvel e as normas aplicáveis ao serviço. O escopo é definido após a avaliação da necessidade.
                     </>
                   ) : (
                     <>
-                      A <strong>Cnsousatec</strong> oferece o suporte técnico especializado que <strong>{localidadeNome}</strong> e toda a região de <strong>Águas Lindas de Goiás</strong> precisam. Seja para uma emergência elétrica 24h, reparo eletrônico ou instalação hidráulica, nossa equipe está pronta para atender com rapidez, segurança e o melhor custo-benefício de GO.
+                      A <strong>Cnsousatec</strong> atende solicitações de <strong>{servicoNome}</strong> em <strong>{localidadeNome}</strong> e região. O serviço, prazo e condições são confirmados conforme a necessidade apresentada.
                     </>
                   )}
                 </p>
@@ -143,9 +142,9 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                   <div className="flex gap-3">
                     <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Atendimento Local</h3>
+                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Área de atendimento</h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Equipe disponível para atendimento rápido em {localidadeNome} e região. Foco de Atendimento: <strong>{foco}</strong>.
+                    Solicitações de {servicoNome} em {localidadeNome} e região. Foco de atendimento: <strong>{foco}</strong>.
                   </p>
                     </div>
                   </div>
@@ -153,9 +152,9 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                   <div className="flex gap-3">
                     <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Profissionais Qualificados</h3>
+                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Triagem técnica</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Técnicos certificados e experientes em {servicoNome}.
+                        A necessidade é analisada antes da definição do serviço e dos materiais necessários.
                       </p>
                     </div>
                   </div>
@@ -163,9 +162,9 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                   <div className="flex gap-3">
                     <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Orçamento Sem Compromisso</h3>
+                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Solicitação de orçamento</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Avaliação gratuita e orçamento transparente antes de iniciar o serviço.
+                        Solicite os detalhes de escopo e valores antes de autorizar o serviço.
                       </p>
                     </div>
                   </div>
@@ -173,9 +172,9 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                   <div className="flex gap-3">
                     <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Garantia dos Serviços</h3>
+                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Condições do serviço</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Todos os nossos serviços possuem garantia de qualidade.
+                        Prazos, materiais e eventuais garantias são informados conforme o serviço contratado.
                       </p>
                     </div>
                   </div>
@@ -186,15 +185,15 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                 </h2>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Nossa equipe está preparada para atender todas as suas necessidades em {servicoNome}. Trabalhamos com manutenção preventiva, 
-                  corretiva, instalações novas, reformas e adequações. Utilizamos apenas materiais de qualidade e seguimos rigorosamente as normas 
+                  Nossa equipe está preparada para atender todas as suas necessidades em {servicoNome}. Trabalhamos com manutenção preventiva,
+                  corretiva, instalações novas, reformas e adequações. Utilizamos apenas materiais de qualidade e seguimos rigorosamente as normas
                   técnicas vigentes.
                 </p>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                   {uf === 'DF' ? (
                     <>
-                      Em <strong>{localidadeNome}</strong>, a segurança e a conformidade são prioridades. Nossos técnicos possuem certificações NR-10 e CREA, essenciais para atuar em condomínios e empresas de alto padrão. Garantimos um serviço de excelência, focado na durabilidade e na tranquilidade do seu patrimônio.
+                      Em <strong>{localidadeNome}</strong>, a segurança e a conformidade devem ser consideradas no escopo do serviço. Os requisitos técnicos aplicáveis são verificados durante a avaliação.
                     </>
                   ) : (
                     <>
@@ -208,18 +207,17 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                     Atendemos {localidadeNome} e Região
                   </h3>
                   <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-                    A Cnsousatec possui equipes móveis prontas para atender {localidadeNome} com agilidade. 
-                    Entre em contato agora mesmo e agende uma visita técnica.
+                    Entre em contato para descrever a necessidade em {localidadeNome} e verificar disponibilidade para uma visita técnica.
                   </p>
                   <a
                     href={getLocalityWhatsAppUrl(localidadeNome, servicoNome)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => trackWhatsAppClick({ placement: 'locality_page', service: servicoNome, locality: localidadeNome, label: 'Acionar Manutenção 24h' })}
+                    onClick={() => trackWhatsAppClick({ placement: 'locality_page', service: servicoNome, locality: localidadeNome, label: 'Solicitar atendimento' })}
                     className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                   >
                     <Phone className="w-5 h-5" />
-                    Acionar Manutenção 24h em {localidadeNome}
+                    Solicitar atendimento em {localidadeNome}
                   </a>
                 </div>
               </motion.div>
@@ -228,21 +226,20 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
         </section>
 
         <ServicesSection uf={uf} />
-        <Testimonials uf={uf} />
 
-        <FAQ 
+        <FAQ
           items={[
             {
               question: `Qual o tempo de resposta para ${servicoNome} em ${localidadeNome}?`,
-              answer: `Para atendimentos de ${servicoBase} em ${localidadeNome}, nossa equipe técnica costuma chegar em um prazo de 30 a 60 minutos, garantindo agilidade total para sua residência ou empresa.`
+              answer: `O prazo para ${servicoBase} em ${localidadeNome} depende da disponibilidade e da complexidade da solicitação. Confirme a previsão durante o contato.`
             },
             {
-              question: `A CNSOUSATEC ® atende emergências 24h em ${localidadeNome}?`,
-              answer: `Sim! Oferecemos suporte técnico especializado 24 horas por dia em ${localidadeNome} e região, inclusive aos finais de semana e feriados, para serviços de elétrica, eletrônica e hidráulica.`
+              question: `Como funciona o atendimento de emergência em ${localidadeNome}?`,
+              answer: `Descreva a urgência e o tipo de serviço em ${localidadeNome}. A CNSOUSATEC confirmará disponibilidade, prazo e condições para o atendimento.`
             },
             {
               question: `Como solicitar um orçamento para ${servicoBase} em ${localidadeNome}?`,
-              answer: `Você pode solicitar um orçamento gratuito clicando no botão do WhatsApp em nosso site. Atendemos ${localidadeNome} com foco em ${foco}, oferecendo transparência e o melhor custo-benefício.`
+              answer: `Você pode solicitar uma avaliação de escopo pelo WhatsApp. Informe ${localidadeNome}, o tipo de imóvel e o problema observado para receber as orientações iniciais.`
             }
           ]}
         />
@@ -284,7 +281,7 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [];
-  
+
   for (const servicoKey of Object.keys(servicos)) {
     for (const localidade of localidades) {
       paths.push({
@@ -305,15 +302,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
   const parts = slug.split('-');
-  
+
   // Encontrar onde termina o serviço e começa a localidade
   let servicoKey = '';
   let localidadeSlug = '';
-  
+
   for (let i = parts.length - 1; i >= 0; i--) {
     const possibleLocalidadeSlug = parts.slice(i).join('-');
     const localidadeData = getLocalidadeBySlug(possibleLocalidadeSlug);
-    
+
     if (localidadeData) {
       localidadeSlug = possibleLocalidadeSlug;
       servicoKey = parts.slice(0, i).join('-');
@@ -322,7 +319,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const servicoBase = servicos[servicoKey as keyof typeof servicos] || 'Serviço';
-  const popularTerm = servicoKey === 'manutencao-eletrica' ? 'Eletricista' : 
+  const popularTerm = servicoKey === 'manutencao-eletrica' ? 'Eletricista' :
                       servicoKey === 'manutencao-eletronica' ? 'Técnico em Eletrônica' : 'Encanador e Desentupidora';
   const servicoNome = `${popularTerm} (${servicoBase})`;
   const localidadeData = getLocalidadeBySlug(localidadeSlug);

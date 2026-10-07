@@ -3,7 +3,6 @@ import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { UrgentMaintenanceCta, ExpressQuoteCta, MedicalEngineeringCta } from '../components/cro/WhatsAppCta';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Testimonials from '../components/Testimonials';
 import ServicesSection from '../components/ServicesSection';
 import SchemaLocalBusiness from '../components/SchemaLocalBusiness';
 import SEO from '../components/SEO';
@@ -80,7 +79,7 @@ export default function Home() {
                   {[
                     "Equipe técnica altamente qualificada",
                     "Atendimento rápido e personalizado",
-                    "Garantia em todos os serviços prestados",
+                    "Condições do serviço informadas antes da execução",
                     "Equipamentos de última geração",
                     "Preços competitivos e transparência"
                   ].map((item, index) => (
@@ -101,8 +100,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <Testimonials uf="DF" />
 
         <FAQ items={conversionFaq} includeSchema={false} />
 
