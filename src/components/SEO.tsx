@@ -34,6 +34,9 @@ export default function SEO({
   const fullTitle = hasBrand ? optimizedTitle : `${optimizedTitle} | ${siteName}`;
   const baseUrl = 'https://www.cnsousatec.com.br';
   const canonicalUrl = (canonical || baseUrl).toLowerCase().replace(/\/$/, '');
+  const robotsContent = noindex
+    ? 'noindex,nofollow'
+    : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
   const searchDescription = /ligue|solicite|fale|orçamento|atendimento agora/i.test(description)
     ? description
@@ -84,7 +87,7 @@ export default function SEO({
       <title>{fullTitle}</title>
       <meta name="description" content={searchDescription} />
       <meta name="keywords" content="eletricista 24h, encanador, caça vazamentos, manutenção eletrônica, engenharia clínica, Brasília, Águas Lindas, DF, CNSOUSATEC" />
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
+      <meta name="robots" content={robotsContent} />
 
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="icon" href="/CNSOUSATEC-mark.png" type="image/png" />
