@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { initGA, logPageView } from '../lib/analytics';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -44,6 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <WhatsAppFloatingButton />
           <VirtualAssistant />
+          <Analytics />
           <SpeedInsights />
         </>
       ) : (
