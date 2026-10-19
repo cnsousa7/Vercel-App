@@ -33,7 +33,6 @@ export default function Home() {
         title="Emergência Elétrica e Hidráulica 24h no DF | Atendimento Rápido | CNSOUSATEC"
         description="CNSOUSATEC: manutenção elétrica, hidráulica, eletrônica e engenharia clínica 24h em Brasília, DF e Entorno. Especialistas e orçamento expresso. Ligue agora."
         canonical="https://www.cnsousatec.com.br"
-        faqItems={conversionFaq}
       />
 
       <SchemaLocalBusiness />
@@ -104,7 +103,7 @@ export default function Home() {
 
         <Testimonials uf="DF" />
 
-        <FAQ items={conversionFaq} includeSchema={false} />
+        <FAQ items={conversionFaq} />
 
         {/* Contact Section */}
         <section id="contato" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800/50 transition-colors duration-300 relative overflow-hidden">

@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-import SchemaLocalBusiness from '../components/SchemaLocalBusiness';
 
 export default function Document() {
   return (
@@ -14,14 +13,6 @@ export default function Document() {
         
         {/* Google Site Verification (Optional but recommended) */}
         <meta name="google-site-verification" content="2yoP5tDmsNpV_o8PcXiE9cTd6YSEwJsY99PcVtjufQ0" />
-        
-        {/* Logo for social media */}
-        <meta property="og:image" content="/CNSOUSATEC-logo-restored.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        
-        <SchemaLocalBusiness />
         
       </Head>
       <body>
