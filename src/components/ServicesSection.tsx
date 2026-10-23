@@ -23,8 +23,8 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
     {
       title: "Manutenção Hidráulica",
       desc: isDF
-        ? "Sistemas hidráulicos complexos, detecção de vazamentos por ultrassom e instalações prediais de alta performance."
-        : "Consertos de vazamentos, limpeza de caixas d'água e manutenção hidráulica residencial ágil e acessível.",
+        ? "Vazamentos, entupimentos, reparos e instalações hidráulicas para residências, empresas e condomínios."
+        : "Consertos de vazamentos, desentupimentos, instalações e manutenção hidráulica residencial e predial.",
       icon: <Clock className="w-8 h-8 text-cyan-600" />,
       link: "/servicos/manutencao-hidraulica",
       image: "/optimized/images/hidraulica.webp"
@@ -78,6 +78,15 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
                 <Link href={service.link} className="cns-service-card__link text-blue-600 dark:text-blue-400 font-semibold inline-flex items-center gap-2 hover:underline">
                   Saiba mais <ArrowRight className="w-4 h-4" />
                 </Link>
+                {service.title === 'Manutenção Hidráulica' && (
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                    <Link href="/servicos/encanador" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Encanador</Link>
+                    <Link href="/servicos/caca-vazamentos" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Vazamentos</Link>
+                    <Link href="/servicos/desentupimento" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Desentupimento</Link>
+                    <Link href="/servicos/instalacao-hidraulica" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Instalação</Link>
+                    <Link href="/servicos/manutencao-hidraulica-predial" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Predial</Link>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

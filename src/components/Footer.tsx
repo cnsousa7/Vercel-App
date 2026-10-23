@@ -111,6 +111,11 @@ export default function Footer() {
                   Manutenção Hidráulica
                 </Link>
               </li>
+              <li><Link href="/servicos/encanador" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors">Encanador</Link></li>
+              <li><Link href="/servicos/caca-vazamentos" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors">Caça-vazamentos</Link></li>
+              <li><Link href="/servicos/desentupimento" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors">Desentupimento</Link></li>
+              <li><Link href="/servicos/instalacao-hidraulica" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors">Instalação hidráulica</Link></li>
+              <li><Link href="/servicos/manutencao-hidraulica-predial" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors">Manutenção predial</Link></li>
               <li>
                 <Link
                   href="/servicos/manutencao-eletronica"

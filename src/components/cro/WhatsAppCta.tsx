@@ -43,14 +43,19 @@ export function WhatsAppCta({
   href,
   className = "",
   onClick,
+  service,
+  placement = 'cta',
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   href?: string;
+  service?: string;
+  placement?: string;
 }) {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
     trackWhatsAppClick({
-      placement: 'cta',
+      placement,
+      service,
       label: typeof children === 'string' ? children : undefined,
     });
     onClick?.(event);
@@ -60,6 +65,7 @@ export function WhatsAppCta({
     <a
       className={`cns-whatsapp-cta ${className}`.trim()}
       href={href ?? getGeneralWhatsAppUrl()}
+      data-service={service}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
@@ -102,13 +108,20 @@ export function CustomWhatsAppCta({
   message,
   children,
   className = "",
+  service,
 }: {
   message: string;
   children: ReactNode;
   className?: string;
+  service?: string;
 }) {
   return (
-    <WhatsAppCta className={className} href={getWhatsAppUrl(message)}>
+    <WhatsAppCta
+      className={className}
+      href={getWhatsAppUrl(message)}
+      service={service}
+      placement="hydraulic_landing"
+    >
       {children}
     </WhatsAppCta>
   );

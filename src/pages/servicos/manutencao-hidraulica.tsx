@@ -248,6 +248,8 @@ export default function ManutencaoHidraulica() {
                   ['/servicos/encanador', 'Encanador'],
                   ['/servicos/caca-vazamentos', 'Caça-vazamentos'],
                   ['/servicos/desentupimento', 'Desentupimento'],
+                  ['/servicos/instalacao-hidraulica', 'Instalação hidráulica'],
+                  ['/servicos/manutencao-hidraulica-predial', 'Manutenção predial'],
                 ].map(([href, label]) => (
                   <li key={href}>
                     <Link href={href} className="block rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 font-semibold text-cyan-700 dark:text-cyan-300 hover:underline">

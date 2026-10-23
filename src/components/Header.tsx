@@ -70,6 +70,21 @@ export default function Header() {
                   <Link href="/servicos/manutencao-hidraulica" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
                     Manutenção Hidráulica
                   </Link>
+                  <Link href="/servicos/encanador" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
+                    Encanador
+                  </Link>
+                  <Link href="/servicos/caca-vazamentos" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
+                    Caça-vazamentos
+                  </Link>
+                  <Link href="/servicos/desentupimento" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
+                    Desentupimento
+                  </Link>
+                  <Link href="/servicos/instalacao-hidraulica" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
+                    Instalação hidráulica
+                  </Link>
+                  <Link href="/servicos/manutencao-hidraulica-predial" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
+                    Manutenção predial
+                  </Link>
                   <Link href="/servicos/manutencao-eletronica" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" onClick={() => setServicesOpen(false)}>
                     Manutenção Eletrônica
                   </Link>
@@ -151,6 +166,21 @@ export default function Header() {
             </Link>
             <Link href="/servicos/manutencao-hidraulica" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
               Manutenção Hidráulica
+            </Link>
+            <Link href="/servicos/encanador" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+              Encanador
+            </Link>
+            <Link href="/servicos/caca-vazamentos" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+              Caça-vazamentos
+            </Link>
+            <Link href="/servicos/desentupimento" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+              Desentupimento
+            </Link>
+            <Link href="/servicos/instalacao-hidraulica" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+              Instalação hidráulica
+            </Link>
+            <Link href="/servicos/manutencao-hidraulica-predial" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+              Manutenção predial
             </Link>
             <Link href="/servicos/manutencao-eletronica" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
               Manutenção Eletrônica
