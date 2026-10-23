@@ -38,6 +38,8 @@ const staticUrls = [
   '/servicos/encanador',
   '/servicos/caca-vazamentos',
   '/servicos/desentupimento',
+  '/servicos/instalacao-hidraulica',
+  '/servicos/manutencao-hidraulica-predial',
 ];
 
 const localUrls = servicos.flatMap((servico) =>

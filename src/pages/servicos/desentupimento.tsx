@@ -22,6 +22,11 @@ export default function DesentupimentoPage() {
         'Com a região e os detalhes do problema, a equipe pode avaliar a disponibilidade e orientar os próximos passos. O orçamento depende do diagnóstico e do escopo necessário.',
       ]}
       whatsappMessage="Olá! Preciso de desentupimento em Brasília ou no Entorno. O ponto afetado é: ____. A região é: ____. Gostaria de verificar a disponibilidade e solicitar orientação."
+      serviceKey="desentupimento"
+      faqs={[
+        { question: 'Quais pontos podem ser avaliados?', answer: 'A solicitação pode envolver pias, ralos, vasos sanitários, sifões, ramais e outros pontos de escoamento, conforme o problema informado.' },
+        { question: 'O que devo informar no primeiro contato?', answer: 'Informe o ponto obstruído, há quanto tempo começou, se há retorno de água e se outros pontos do imóvel também foram afetados.' },
+      ]}
     />
   );
 }

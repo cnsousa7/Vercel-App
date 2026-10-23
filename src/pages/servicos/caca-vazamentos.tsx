@@ -22,6 +22,11 @@ export default function CacaVazamentosPage() {
         'Envie a região e uma descrição objetiva do problema pelo WhatsApp. Fotos podem ajudar na triagem, mas não substituem a avaliação do local quando ela for necessária.',
       ]}
       whatsappMessage="Olá! Preciso investigar um possível vazamento em Brasília ou no Entorno. A região é: ____. Notei: ____. Gostaria de verificar a disponibilidade de uma avaliação."
+      serviceKey="caca-vazamentos"
+      faqs={[
+        { question: 'Quais sinais podem indicar um vazamento?', answer: 'Manchas de umidade, consumo anormal, cheiro de mofo, ruídos nas tubulações e queda de pressão são sinais que merecem avaliação.' },
+        { question: 'Preciso quebrar a parede antes de chamar?', answer: 'Não. Envie os sinais observados e a região. A equipe orientará os próximos passos e confirmará quando uma avaliação no local for necessária.' },
+      ]}
     />
   );
 }

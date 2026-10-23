@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
 import ServiceSchema from './ServiceSchema';
+import FAQ, { type FAQItem } from './FAQ';
 import { CheckCircle, Droplet, Wrench } from 'lucide-react';
 import { CustomWhatsAppCta } from './cro/WhatsAppCta';
 
@@ -16,6 +17,8 @@ export interface HydraulicServiceLandingProps {
   guidanceTitle: string;
   guidance: string[];
   whatsappMessage: string;
+  serviceKey: string;
+  faqs: FAQItem[];
 }
 
 const relatedPages = [
@@ -23,6 +26,8 @@ const relatedPages = [
   { href: '/servicos/encanador', label: 'Encanador' },
   { href: '/servicos/caca-vazamentos', label: 'Caça-vazamentos' },
   { href: '/servicos/desentupimento', label: 'Desentupimento' },
+  { href: '/servicos/instalacao-hidraulica', label: 'Instalação hidráulica' },
+  { href: '/servicos/manutencao-hidraulica-predial', label: 'Manutenção hidráulica predial' },
 ];
 
 export default function HydraulicServiceLanding({
@@ -35,6 +40,8 @@ export default function HydraulicServiceLanding({
   guidanceTitle,
   guidance,
   whatsappMessage,
+  serviceKey,
+  faqs,
 }: HydraulicServiceLandingProps) {
   return (
     <>
@@ -62,7 +69,7 @@ export default function HydraulicServiceLanding({
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">{heading}</h1>
               <p className="text-xl text-cyan-100 mb-8">{intro}</p>
-              <CustomWhatsAppCta message={whatsappMessage}>
+              <CustomWhatsAppCta message={whatsappMessage} service={serviceKey}>
                 Solicitar atendimento hidráulico
               </CustomWhatsAppCta>
             </div>
@@ -97,12 +104,17 @@ export default function HydraulicServiceLanding({
                     <p className="text-gray-700 dark:text-gray-300 mb-5">
                       Informe a região, o tipo de problema e, se possível, quando ele começou. A equipe poderá avaliar as informações e confirmar a disponibilidade do atendimento.
                     </p>
-                    <CustomWhatsAppCta message={whatsappMessage}>
+                    <CustomWhatsAppCta message={whatsappMessage} service={serviceKey}>
                       Falar sobre meu problema
                     </CustomWhatsAppCta>
+                    <a href="tel:+5561992743428" className="inline-flex ml-3 mt-3 text-cyan-800 dark:text-cyan-200 font-semibold underline underline-offset-4">
+                      Ligar: (61) 99274-3428
+                    </a>
                   </div>
                 </div>
               </div>
+
+              <FAQ items={faqs} title="Dúvidas sobre este atendimento" />
 
               <nav aria-label="Outros serviços hidráulicos" className="border-t border-gray-200 dark:border-gray-700 pt-8">
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Veja também</h2>

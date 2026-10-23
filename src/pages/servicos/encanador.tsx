@@ -22,6 +22,11 @@ export default function EncanadorPage() {
         'O atendimento pode envolver diagnóstico, orientação sobre o próximo passo e orçamento conforme o tipo de serviço. A disponibilidade e o escopo devem ser confirmados diretamente com a equipe para cada solicitação.',
       ]}
       whatsappMessage="Olá! Preciso de um encanador em Brasília ou no Entorno. Meu problema é: ____. A região é: ____. Gostaria de verificar a disponibilidade e solicitar um orçamento."
+      serviceKey="encanador"
+      faqs={[
+        { question: 'Que informações devo enviar?', answer: 'Informe a região, o ambiente afetado e os sinais do problema. Fotos podem ajudar na triagem quando for seguro enviá-las.' },
+        { question: 'O orçamento é definido antes do atendimento?', answer: 'A equipe avalia as informações e confirma a disponibilidade. O escopo e o orçamento dependem do diagnóstico e devem ser confirmados para cada solicitação.' },
+      ]}
     />
   );
 }
