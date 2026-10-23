@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
 import { Wrench, CheckCircle, Droplet, Shield, Clock } from 'lucide-react';
 import { ExpressQuoteCta, UrgentMaintenanceCta } from '../../components/cro/WhatsAppCta';
+import Link from 'next/link';
 
 export default function ManutencaoHidraulica() {
   return (
@@ -232,6 +233,30 @@ export default function ManutencaoHidraulica() {
               </p>
               <UrgentMaintenanceCta />
             </motion.div>
+          </div>
+        </section>
+
+        <section className="py-12 bg-gray-50 dark:bg-gray-800">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Encontre o atendimento hidráulico adequado</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
+              Escolha a página mais próxima do problema que você precisa resolver para enviar informações mais específicas à equipe.
+            </p>
+            <nav aria-label="Serviços hidráulicos específicos">
+              <ul className="grid sm:grid-cols-3 gap-4">
+                {[
+                  ['/servicos/encanador', 'Encanador'],
+                  ['/servicos/caca-vazamentos', 'Caça-vazamentos'],
+                  ['/servicos/desentupimento', 'Desentupimento'],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <Link href={href} className="block rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 font-semibold text-cyan-700 dark:text-cyan-300 hover:underline">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </section>
       </main>
