@@ -50,6 +50,27 @@ export const trackWhatsAppClick = ({
   });
 };
 
+export type PhoneClickContext = {
+  placement: string;
+  service?: string;
+  locality?: string;
+  label?: string;
+};
+
+export const trackPhoneClick = ({
+  placement,
+  service,
+  locality,
+  label,
+}: PhoneClickContext) => {
+  logEvent('tel_click', {
+    placement,
+    service,
+    locality,
+    cta_label: label,
+  });
+};
+
 export const trackChatbotOpen = () => {
   logEvent('chatbot_open', { component: 'virtual_assistant' });
 };

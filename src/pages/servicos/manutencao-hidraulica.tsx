@@ -5,10 +5,13 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
 import { motion } from 'framer-motion';
 import { Wrench, CheckCircle, Droplet, Shield, Clock } from 'lucide-react';
-import { ExpressQuoteCta, UrgentMaintenanceCta } from '../../components/cro/WhatsAppCta';
+import { CustomWhatsAppCta } from '../../components/cro/WhatsAppCta';
+import { PhoneCta } from '../../components/cro/PhoneCta';
 import Link from 'next/link';
 
 export default function ManutencaoHidraulica() {
+  const whatsappMessage = 'Olá! Preciso de manutenção hidráulica em Brasília ou no Entorno. O problema ou serviço é: ____. O imóvel fica em: ____. Gostaria de verificar a disponibilidade e solicitar orientação.';
+
   return (
     <>
       <SEO
@@ -49,7 +52,22 @@ export default function ManutencaoHidraulica() {
               <p className="text-xl text-cyan-100 mb-8">
                 Serviços completos em sistemas hidráulicos, tubulações e instalações prediais para empresas e condomínios no Distrito Federal
               </p>
-              <ExpressQuoteCta />
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <CustomWhatsAppCta
+                  message={whatsappMessage}
+                  service="manutencao-hidraulica"
+                  placement="hydraulic_main_hero"
+                >
+                  Falar sobre meu problema hidráulico
+                </CustomWhatsAppCta>
+                <PhoneCta
+                  service="manutencao-hidraulica"
+                  placement="hydraulic_main_hero"
+                  className="inline-flex items-center rounded-lg border-2 border-white px-5 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  Ligar para atendimento hidráulico
+                </PhoneCta>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -231,7 +249,22 @@ export default function ManutencaoHidraulica() {
               <p className="text-xl mb-8 text-cyan-100">
                 Entre em contato agora e receba um orçamento personalizado
               </p>
-              <UrgentMaintenanceCta />
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <CustomWhatsAppCta
+                  message={whatsappMessage}
+                  service="manutencao-hidraulica"
+                  placement="hydraulic_main_bottom"
+                >
+                  Solicitar avaliação hidráulica
+                </CustomWhatsAppCta>
+                <PhoneCta
+                  service="manutencao-hidraulica"
+                  placement="hydraulic_main_bottom"
+                  className="inline-flex items-center rounded-lg border-2 border-white px-5 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  Ligar agora
+                </PhoneCta>
+              </div>
             </motion.div>
           </div>
         </section>

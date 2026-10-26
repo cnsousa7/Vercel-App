@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 import { Moon, Sun, Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { getGeneralWhatsAppUrl } from './cro/whatsapp';
 import { trackWhatsAppClick } from '../lib/analytics';
+import { PhoneCta } from './cro/PhoneCta';
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
@@ -25,7 +26,6 @@ export default function Header() {
   };
 
   const whatsappUrl = getGeneralWhatsAppUrl();
-  const phoneUrl = "tel:+5561992743428";
 
   return (
     <header className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors duration-300">
@@ -111,12 +111,14 @@ export default function Header() {
               )}
             </button>
 
-            <a
-              href={phoneUrl}
+            <PhoneCta
+              service="global"
+              placement="header_desktop"
+              label="Telefone do cabeçalho desktop"
               className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold border-2 border-blue-600 dark:border-blue-400 px-4 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
             >
               <Phone className="w-4 h-4" /> (61) 99274-3428
-            </a>
+            </PhoneCta>
             <a
               href={whatsappUrl}
               target="_blank"
@@ -188,13 +190,15 @@ export default function Header() {
             <Link href="/#contato" className="block text-gray-700 dark:text-gray-300" onClick={() => setMobileMenuOpen(false)}>
               Contato
             </Link>
-            <a
-              href={phoneUrl}
+            <PhoneCta
+              service="global"
+              placement="header_mobile"
+              label="Ligar Agora"
               className="flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border-2 border-blue-600 dark:border-blue-400 px-6 py-3 rounded-lg font-bold text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Phone className="w-5 h-5" /> Ligar Agora
-            </a>
+            </PhoneCta>
             <a
               href={whatsappUrl}
               target="_blank"

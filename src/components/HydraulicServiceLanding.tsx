@@ -6,6 +6,7 @@ import ServiceSchema from './ServiceSchema';
 import FAQ, { type FAQItem } from './FAQ';
 import { CheckCircle, Droplet, Wrench } from 'lucide-react';
 import { CustomWhatsAppCta } from './cro/WhatsAppCta';
+import { PhoneCta } from './cro/PhoneCta';
 
 export interface HydraulicServiceLandingProps {
   title: string;
@@ -30,6 +31,34 @@ const relatedPages = [
   { href: '/servicos/manutencao-hidraulica-predial', label: 'Manutenção hidráulica predial' },
 ];
 
+const ctaCopy: Record<string, { primary: string; secondary: string; phone: string }> = {
+  encanador: {
+    primary: 'Falar com um encanador',
+    secondary: 'Enviar meu problema ao encanador',
+    phone: 'Ligar para um encanador',
+  },
+  'caca-vazamentos': {
+    primary: 'Enviar detalhes do vazamento',
+    secondary: 'Falar sobre meu vazamento',
+    phone: 'Ligar sobre um vazamento',
+  },
+  desentupimento: {
+    primary: 'Resolver meu entupimento',
+    secondary: 'Falar sobre meu entupimento',
+    phone: 'Ligar sobre um entupimento',
+  },
+  'instalacao-hidraulica': {
+    primary: 'Solicitar avaliação da instalação',
+    secondary: 'Falar sobre minha instalação',
+    phone: 'Ligar sobre uma instalação',
+  },
+  'manutencao-hidraulica-predial': {
+    primary: 'Falar com atendimento predial',
+    secondary: 'Solicitar avaliação predial',
+    phone: 'Ligar sobre atendimento predial',
+  },
+};
+
 export default function HydraulicServiceLanding({
   title,
   description,
@@ -43,6 +72,12 @@ export default function HydraulicServiceLanding({
   serviceKey,
   faqs,
 }: HydraulicServiceLandingProps) {
+  const copy = ctaCopy[serviceKey] ?? {
+    primary: 'Falar sobre meu problema hidráulico',
+    secondary: 'Solicitar avaliação hidráulica',
+    phone: 'Ligar para atendimento hidráulico',
+  };
+
   return (
     <>
       <SEO title={title} description={description} canonical={canonical} />
@@ -69,8 +104,8 @@ export default function HydraulicServiceLanding({
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">{heading}</h1>
               <p className="text-xl text-cyan-100 mb-8">{intro}</p>
-              <CustomWhatsAppCta message={whatsappMessage} service={serviceKey}>
-                Solicitar atendimento hidráulico
+              <CustomWhatsAppCta message={whatsappMessage} service={serviceKey} placement="hydraulic_landing_hero">
+                {copy.primary}
               </CustomWhatsAppCta>
             </div>
           </div>
@@ -104,12 +139,16 @@ export default function HydraulicServiceLanding({
                     <p className="text-gray-700 dark:text-gray-300 mb-5">
                       Informe a região, o tipo de problema e, se possível, quando ele começou. A equipe poderá avaliar as informações e confirmar a disponibilidade do atendimento.
                     </p>
-                    <CustomWhatsAppCta message={whatsappMessage} service={serviceKey}>
-                      Falar sobre meu problema
+                    <CustomWhatsAppCta message={whatsappMessage} service={serviceKey} placement="hydraulic_landing_mid">
+                      {copy.secondary}
                     </CustomWhatsAppCta>
-                    <a href="tel:+5561992743428" className="inline-flex ml-3 mt-3 text-cyan-800 dark:text-cyan-200 font-semibold underline underline-offset-4">
-                      Ligar: (61) 99274-3428
-                    </a>
+                    <PhoneCta
+                      service={serviceKey}
+                      placement="hydraulic_landing_mid"
+                      className="inline-flex ml-3 mt-3 text-cyan-800 dark:text-cyan-200 font-semibold underline underline-offset-4"
+                    >
+                      {copy.phone}: (61) 99274-3428
+                    </PhoneCta>
                   </div>
                 </div>
               </div>
