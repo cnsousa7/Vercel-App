@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Zap, Shield, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -54,12 +53,8 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
               className="cns-service-card bg-white dark:bg-gray-900 rounded-xl shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
               <div className="relative h-48 overflow-hidden">
@@ -88,7 +83,7 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

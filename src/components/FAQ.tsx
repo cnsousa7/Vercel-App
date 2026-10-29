@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
@@ -53,16 +52,14 @@ export default function FAQ({ items, title = "Perguntas Frequentes", includeSche
                 <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${activeIndex === index ? 'rotate-180' : ''}`} />
               </button>
               {activeIndex === index && (
-                <motion.div
+                <div
                   id={`faq-answer-${index}`}
                   role="region"
                   aria-labelledby={`faq-question-${index}`}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
                   className="px-6 pb-4 text-gray-600 dark:text-gray-400"
                 >
                   <p className="pt-2 border-t border-gray-100 dark:border-gray-700">{item.answer}</p>
-                </motion.div>
+                </div>
               )}
             </div>
           ))}

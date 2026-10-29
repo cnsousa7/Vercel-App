@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
 interface TestimonialProps {
@@ -56,12 +55,8 @@ export default function Testimonials({ uf = 'DF' }: TestimonialProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {currentTestimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 relative"
             >
               <Quote className="absolute top-4 right-4 w-10 h-10 text-blue-100 dark:text-gray-800" />
@@ -84,7 +79,7 @@ export default function Testimonials({ uf = 'DF' }: TestimonialProps) {
                   {testimonial.role}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

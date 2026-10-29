@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
 import { UrgentMaintenanceCta, ExpressQuoteCta, MedicalEngineeringCta } from '../components/cro/WhatsAppCta';
 import Header from '../components/Header';
@@ -107,26 +106,14 @@ export default function Home() {
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent mb-6">Vamos Conversar?</h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Estamos aqui para transformar suas ideias em soluções reais</p>
-            </motion.div>
+            </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {/* Contact Info Card */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group relative"
-              >
+              <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-[40px] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[40px] p-10 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl">
                   <h3 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">Entre em Contato</h3>
@@ -138,9 +125,8 @@ export default function Home() {
                       { icon: <Mail className="w-6 h-6" />, text: "Cnsousatec@gmail.com", label: "E-mail" },
                       { icon: <MapPin className="w-6 h-6" />, text: "Brasília - DF", label: "Localização" }
                     ].map((item, i) => (
-                      <motion.div 
+                      <div
                         key={i}
-                        whileHover={{ x: 8 }}
                         className="flex items-center gap-5 group/item cursor-pointer"
                       >
                         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg group-hover/item:shadow-xl transition-all group-hover/item:scale-110">
@@ -150,20 +136,14 @@ export default function Home() {
                           <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">{item.label}</p>
                           <p className="text-lg font-semibold text-gray-900 dark:text-white">{item.text}</p>
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
               
               {/* CTA Card */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="group relative"
-              >
+              <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-[40px] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[40px] p-10 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl flex flex-col justify-center">
                   <h3 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">Mande uma Mensagem</h3>
@@ -173,7 +153,7 @@ export default function Home() {
                   <ExpressQuoteCta className="w-full py-6 rounded-3xl text-xl shadow-2xl shadow-green-500/30" />
                   <p className="text-center mt-8 text-sm text-gray-500 dark:text-gray-400">⚡ Resposta média em menos de 15 minutos</p>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
