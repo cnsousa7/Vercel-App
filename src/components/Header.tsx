@@ -37,7 +37,9 @@ export default function Header() {
               <Image
                 src="/CNSOUSATEC-mark.webp"
                 alt="Cnsousatec logo"
-                fill
+                width={40}
+                height={40}
+                sizes="40px"
                 className="object-cover"
               />
             </div>

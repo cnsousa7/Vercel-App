@@ -77,9 +77,9 @@ export default function Testimonials({ uf = 'DF' }: TestimonialProps) {
               </p>
 
               <div>
-                <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                <p className="font-bold text-gray-900 dark:text-white text-lg">
                   {testimonial.name}
-                </h4>
+                </p>
                 <p className="text-gray-500 dark:text-gray-400">
                   {testimonial.role}
                 </p>

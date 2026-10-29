@@ -75,8 +75,8 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
                 <div className="mb-6">{service.icon}</div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">{service.desc}</p>
-                <Link href={service.link} className="cns-service-card__link text-blue-600 dark:text-blue-400 font-semibold inline-flex items-center gap-2 hover:underline">
-                  Saiba mais <ArrowRight className="w-4 h-4" />
+                <Link href={service.link} className="cns-service-card__link text-blue-700 dark:text-blue-300 font-semibold inline-flex items-center gap-2 hover:underline">
+                  Saiba mais sobre {service.title.toLowerCase()} <ArrowRight className="w-4 h-4" />
                 </Link>
                 {service.title === 'Manutenção Hidráulica' && (
                   <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
