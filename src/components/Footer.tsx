@@ -18,7 +18,9 @@ export default function Footer() {
                 <Image
                   src="/CNSOUSATEC-mark.webp"
                   alt="Cnsousatec logo"
-                  fill
+                  width={32}
+                  height={32}
+                  sizes="32px"
                   className="object-cover"
                 />
               </div>
@@ -186,7 +188,7 @@ export default function Footer() {
             />
           </div>
           
-          <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-10">
+          <p className="text-center text-xs text-gray-600 dark:text-gray-400 mt-10">
             Atendimento técnico especializado 24h em todas as regiões administrativas do Distrito Federal e entorno de Goiás.
           </p>
         </div>

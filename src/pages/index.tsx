@@ -24,8 +24,6 @@ const conversionFaq = [
   },
 ];
 
-const fastTransition = { duration: 0.3, ease: "easeOut" as const };
-
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -42,12 +40,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="cns-hero relative bg-blue-600 dark:bg-blue-900 overflow-hidden transition-colors duration-300">
           <div className="container mx-auto px-4 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={fastTransition}
-              className="cns-hero__content mx-auto text-center text-white"
-            >
+            <div className="cns-hero__content mx-auto text-center text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Manutenção Profissional para seu Negócio
               </h1>
@@ -59,7 +52,7 @@ export default function Home() {
                 <ExpressQuoteCta />
                 <MedicalEngineeringCta />
               </div>
-            </motion.div>
+            </div>
           </div>
           {/* Background pattern */}
           <div className="absolute inset-0 opacity-10">

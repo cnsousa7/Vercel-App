@@ -109,18 +109,20 @@ export function CustomWhatsAppCta({
   children,
   className = "",
   service,
+  placement = 'hydraulic_landing',
 }: {
   message: string;
   children: ReactNode;
   className?: string;
   service?: string;
+  placement?: string;
 }) {
   return (
     <WhatsAppCta
       className={className}
       href={getWhatsAppUrl(message)}
       service={service}
-      placement="hydraulic_landing"
+      placement={placement}
     >
       {children}
     </WhatsAppCta>
