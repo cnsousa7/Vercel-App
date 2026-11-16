@@ -19,7 +19,7 @@ const conversionFaq = [
   },
   {
     question: 'Vocês atendem em quais regiões?',
-    answer: 'Atendemos Brasília e as regiões administrativas do Distrito Federal, além do Entorno, incluindo Águas Lindas de Goiás. Consulte a equipe para confirmar a disponibilidade na sua localidade.',
+    answer: 'Atendemos Brasília e as regiões administrativas do Distrito Federal, além do Entorno, incluindo Águas Lindas - GO. Consulte a equipe para confirmar a disponibilidade na sua localidade.',
   },
 ];
 

@@ -87,7 +87,7 @@ export default function HydraulicServiceLanding({
         canonicalUrl={canonical}
         description={description}
         serviceType="Plumbing Service"
-        areaServed={['Brasília', 'Distrito Federal', 'Entorno do Distrito Federal', 'Águas Lindas de Goiás']}
+        areaServed={['Brasília', 'Distrito Federal', 'Entorno do Distrito Federal', 'Águas Lindas - GO']}
       />
 
       <Header />
