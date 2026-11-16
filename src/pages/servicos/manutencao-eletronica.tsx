@@ -19,9 +19,9 @@ export default function ManutencaoEletronica() {
         name="Manutenção Eletrônica Brasília e Águas Lindas"
         serviceSlug="manutencao-eletronica"
         canonicalUrl="https://www.cnsousatec.com.br/servicos/manutencao-eletronica"
-        description="Conserto de placas eletrônicas e manutenção de equipamentos em Brasília, Águas Lindas de Goiás e todo o Entorno."
+        description="Conserto de placas eletrônicas e manutenção de equipamentos em Brasília, Águas Lindas - GO e todo o Entorno."
         serviceType="Electronics Repair"
-        areaServed={['Brasília', 'Taguatinga', 'Águas Claras', 'Guará', 'Sudoeste', 'Asa Norte', 'Asa Sul', 'Águas Lindas de Goiás', 'Jardim Brasília', 'Mansões Centro']}
+        areaServed={['Brasília', 'Taguatinga', 'Águas Claras', 'Guará', 'Sudoeste', 'Asa Norte', 'Asa Sul', 'Águas Lindas - GO', 'Jardim Brasília', 'Mansões Centro']}
       />
 
       <Header />

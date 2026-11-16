@@ -77,7 +77,7 @@ export default function LocalBusinessSchema({
     : [
         { '@type': 'AdministrativeArea', name: 'Distrito Federal' },
         { '@type': 'AdministrativeArea', name: 'Entorno do Distrito Federal' },
-        { '@type': 'City', name: 'Águas Lindas de Goiás' },
+        { '@type': 'City', name: 'Águas Lindas - GO' },
       ];
 
   const business: Record<string, unknown> = {

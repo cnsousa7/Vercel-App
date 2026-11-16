@@ -49,7 +49,7 @@ const locationOptions = [
   {
     id: 'entorno',
     label: 'Entorno do DF',
-    description: 'Águas Lindas e demais cidades atendidas na região.',
+    description: 'Águas Lindas - GO e demais cidades atendidas na região.',
   },
   {
     id: 'confirmar',

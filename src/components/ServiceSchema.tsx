@@ -15,7 +15,7 @@ const logoUrl = `${siteUrl}/CNSOUSATEC-logo-restored.png`;
 const serviceAreaDescription = [
   { '@type': 'AdministrativeArea', name: 'Distrito Federal' },
   { '@type': 'AdministrativeArea', name: 'Entorno do Distrito Federal' },
-  { '@type': 'City', name: 'Águas Lindas de Goiás' },
+  { '@type': 'City', name: 'Águas Lindas - GO' },
 ];
 
 function safeJsonLd(value: unknown) {
