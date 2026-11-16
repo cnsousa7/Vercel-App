@@ -10,6 +10,9 @@ import { useRouter } from 'next/router';
 import { initGA, logPageView } from '../lib/analytics';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
+
+const GOOGLE_ADS_ID = 'AW-18231540361';
 
 const VirtualAssistant = dynamic(() => import('../components/VirtualAssistant'), {
   ssr: false,
@@ -81,6 +84,19 @@ export default function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <WhatsAppFloatingButton />
       {assistantReady && <VirtualAssistant />}
+      <Script id="google-ads-gtag" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GOOGLE_ADS_ID}');
+        `}
+      </Script>
+      <Script
+        id="google-ads-script"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        strategy="afterInteractive"
+      />
       <Analytics />
       <SpeedInsights />
     </ThemeProvider>
