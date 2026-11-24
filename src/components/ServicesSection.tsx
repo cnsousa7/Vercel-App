@@ -55,34 +55,41 @@ export default function ServicesSection({ uf = 'DF' }: ServicesSectionProps) {
           {services.map((service, index) => (
             <div
               key={index}
-              className="cns-service-card bg-white dark:bg-gray-900 rounded-xl shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 overflow-hidden"
+              className="cns-service-card group bg-white dark:bg-gray-900 rounded-xl shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-8">
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">{service.desc}</p>
-                <Link href={service.link} className="cns-service-card__link text-blue-700 dark:text-blue-300 font-semibold inline-flex items-center gap-2 hover:underline">
-                  Saiba mais sobre {service.title.toLowerCase()} <ArrowRight className="w-4 h-4" />
-                </Link>
-                {service.title === 'Manutenção Hidráulica' && (
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-                    <Link href="/servicos/encanador" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Encanador</Link>
-                    <Link href="/servicos/caca-vazamentos" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Vazamentos</Link>
-                    <Link href="/servicos/desentupimento" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Desentupimento</Link>
-                    <Link href="/servicos/instalacao-hidraulica" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Instalação</Link>
-                    <Link href="/servicos/manutencao-hidraulica-predial" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Predial</Link>
-                  </div>
-                )}
-              </div>
+              <Link
+                href={service.link}
+                className="block rounded-t-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-500 focus-visible:ring-inset"
+                aria-label={`Saiba mais sobre ${service.title.toLowerCase()}`}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-8 pb-4">
+                  <div className="mb-6">{service.icon}</div>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">{service.desc}</p>
+                  <span className="cns-service-card__link text-blue-700 dark:text-blue-300 font-semibold inline-flex items-center gap-2 group-hover:underline">
+                    Saiba mais sobre {service.title.toLowerCase()} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+              {service.title === 'Manutenção Hidráulica' && (
+                <div className="px-8 pb-8 pt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Serviços hidráulicos específicos">
+                  <span className="sr-only">Serviços hidráulicos específicos:</span>
+                  <Link href="/servicos/encanador" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Encanador</Link>
+                  <Link href="/servicos/caca-vazamentos" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Vazamentos</Link>
+                  <Link href="/servicos/desentupimento" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Desentupimento</Link>
+                  <Link href="/servicos/instalacao-hidraulica" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Instalação</Link>
+                  <Link href="/servicos/manutencao-hidraulica-predial" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Predial</Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
