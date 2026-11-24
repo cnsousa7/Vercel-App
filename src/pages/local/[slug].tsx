@@ -31,6 +31,8 @@ interface LocalPageProps {
 
 export default function LocalPage({ servico, servicoNome, servicoBase, localidade, localidadeNome, uf, foco, title, description }: LocalPageProps) {
   const router = useRouter();
+  const isHydraulic = servico === 'manutencao-hidraulica';
+  const regionalContext = foco.replace(/^Atendimento em /, '');
 
   useEffect(() => {
     // Se o slug na URL for diferente do slug canônico (ex: slug antigo), redireciona
@@ -119,18 +121,21 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                 </h2>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A <strong>CNSOUSATEC ®</strong> é referência em <strong>{servicoNome}</strong> na região de <strong>{localidadeNome}</strong>. 
-                  Nossa equipe técnica está estrategicamente posicionada para oferecer o atendimento mais rápido em {localidadeNome}, seja para uma emergência residencial ou manutenção em grandes condomínios e empresas.
+                  A <strong>CNSOUSATEC</strong> recebe solicitações de <strong>{servicoNome}</strong> em <strong>{localidadeNome}</strong>, na região de <strong>{regionalContext}</strong>. O atendimento é direcionado para residências, comércios e condomínios, conforme a disponibilidade da equipe e o tipo de chamado informado.
                 </p>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  {uf === 'DF' ? (
+                  {isHydraulic ? (
                     <>
-                      Entendemos a sofisticação e as normas exigidas nos projetos de <strong>{localidadeNome}</strong>. Nossa equipe é especializada em manutenções que preservam a estética e a segurança de residências de alto padrão, garantindo conformidade total com as normas técnicas brasileiras.
+                      Em um chamado hidráulico, vale informar se o problema envolve vazamento aparente, baixa pressão, registro, torneira, descarga, tubulação, infiltração ou entupimento. Esses detalhes ajudam a equipe a entender o atendimento necessário antes de confirmar a visita em <strong>{localidadeNome}</strong>.
+                    </>
+                  ) : uf === 'DF' ? (
+                    <>
+                      A solicitação é analisada conforme o imóvel, o equipamento e a urgência informada. Antes do atendimento, a equipe confirma a disponibilidade e os detalhes necessários para executar o serviço em <strong>{localidadeNome}</strong>.
                     </>
                   ) : (
                     <>
-                      A <strong>Cnsousatec</strong> oferece o suporte técnico especializado que <strong>{localidadeNome}</strong> e toda a região de <strong>Águas Lindas de Goiás</strong> precisam. Seja para uma emergência elétrica 24h, reparo eletrônico ou instalação hidráulica, nossa equipe está pronta para atender com rapidez, segurança e o melhor custo-benefício de GO.
+                      A <strong>Cnsousatec</strong> analisa o pedido de atendimento em <strong>{localidadeNome}</strong> e confirma a disponibilidade para a região informada, com orientação sobre os próximos passos e o orçamento.
                     </>
                   )}
                 </p>
@@ -155,7 +160,7 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                     <div>
                       <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Profissionais Qualificados</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Técnicos certificados e experientes em {servicoNome}.
+                        Equipe com experiência prática em {servicoNome}; qualificações e escopo são confirmados conforme o chamado.
                       </p>
                     </div>
                   </div>
@@ -165,7 +170,7 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                     <div>
                       <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Orçamento Sem Compromisso</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Avaliação gratuita e orçamento transparente antes de iniciar o serviço.
+                        Orçamento transparente antes de iniciar o serviço, conforme os dados do chamado.
                       </p>
                     </div>
                   </div>
@@ -175,7 +180,7 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                     <div>
                       <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Garantia dos Serviços</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Todos os nossos serviços possuem garantia de qualidade.
+                        Condições, materiais e eventual garantia são informados conforme o serviço e o orçamento aprovado.
                       </p>
                     </div>
                   </div>
@@ -186,15 +191,21 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
                 </h2>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Nossa equipe está preparada para atender todas as suas necessidades em {servicoNome}. Trabalhamos com manutenção preventiva, 
-                  corretiva, instalações novas, reformas e adequações. Utilizamos apenas materiais de qualidade e seguimos rigorosamente as normas 
-                  técnicas vigentes.
+                  {isHydraulic ? (
+                    <>O atendimento de manutenção hidráulica pode envolver diagnóstico de vazamentos, troca ou ajuste de componentes, desentupimento, reparos em pontos de consumo e avaliação de tubulações. O escopo final depende da inspeção e das informações enviadas pelo cliente.</>
+                  ) : (
+                    <>Nossa equipe recebe solicitações de {servicoNome} para manutenção preventiva, corretiva, instalações e adequações. O escopo, os materiais e o prazo são alinhados após a análise do chamado.</>
+                  )}
                 </p>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  {uf === 'DF' ? (
+                  {isHydraulic ? (
                     <>
-                      Em <strong>{localidadeNome}</strong>, a segurança e a conformidade são prioridades. Nossos técnicos possuem certificações NR-10 e CREA, essenciais para atuar em condomínios e empresas de alto padrão. Garantimos um serviço de excelência, focado na durabilidade e na tranquilidade do seu patrimônio.
+                      Para agilizar a triagem em <strong>{localidadeNome}</strong>, envie pelo WhatsApp uma breve descrição do problema, o endereço aproximado da região e, se for seguro, uma foto ou vídeo do ponto afetado. Não tente desmontar instalações pressurizadas ou mexer em componentes elétricos próximos à água.
+                    </>
+                  ) : uf === 'DF' ? (
+                    <>
+                      Em <strong>{localidadeNome}</strong>, a solicitação é avaliada de acordo com o imóvel, o equipamento e a urgência relatada. Fale com a equipe para confirmar a disponibilidade e receber a orientação adequada.
                     </>
                   ) : (
                     <>
@@ -227,6 +238,29 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
           </div>
         </section>
 
+        {isHydraulic && (
+          <section className="py-10 bg-cyan-50 dark:bg-gray-800" aria-labelledby="hydraulic-related-services">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <h2 id="hydraulic-related-services" className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                Outros serviços hidráulicos para {localidadeNome}
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  ['/servicos/encanador', 'Encanador'],
+                  ['/servicos/caca-vazamentos', 'Caça-vazamentos'],
+                  ['/servicos/desentupimento', 'Desentupimento'],
+                  ['/servicos/instalacao-hidraulica', 'Instalação hidráulica'],
+                  ['/servicos/manutencao-hidraulica-predial', 'Manutenção predial'],
+                ].map(([href, label]) => (
+                  <a key={href} href={href} className="rounded-lg bg-white dark:bg-gray-900 px-4 py-3 text-cyan-800 dark:text-cyan-200 font-semibold underline underline-offset-4 shadow-sm">
+                    {label} em {localidadeNome}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <ServicesSection uf={uf} />
         <Testimonials uf={uf} />
 
@@ -234,11 +268,11 @@ export default function LocalPage({ servico, servicoNome, servicoBase, localidad
           items={[
             {
               question: `Qual o tempo de resposta para ${servicoNome} em ${localidadeNome}?`,
-              answer: `Para atendimentos de ${servicoBase} em ${localidadeNome}, nossa equipe técnica costuma chegar em um prazo de 30 a 60 minutos, garantindo agilidade total para sua residência ou empresa.`
+              answer: `Para atendimentos de ${servicoBase} em ${localidadeNome}, o prazo depende da disponibilidade da equipe, da localização e da urgência informada. Confirme as condições pelo WhatsApp antes de agendar.`
             },
             {
-              question: `A CNSOUSATEC ® atende emergências 24h em ${localidadeNome}?`,
-              answer: `Sim! Oferecemos suporte técnico especializado 24 horas por dia em ${localidadeNome} e região, inclusive aos finais de semana e feriados, para serviços de elétrica, eletrônica e hidráulica.`
+              question: `Como funciona um chamado urgente em ${localidadeNome}?`,
+              answer: `Envie pelo WhatsApp a região, o tipo de problema e a urgência. A equipe verifica a disponibilidade para ${localidadeNome} e orienta os próximos passos, inclusive em situações hidráulicas que precisam de avaliação rápida.`
             },
             {
               question: `Como solicitar um orçamento para ${servicoBase} em ${localidadeNome}?`,
@@ -322,9 +356,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const servicoBase = servicos[servicoKey as keyof typeof servicos] || 'Serviço';
-  const popularTerm = servicoKey === 'manutencao-eletrica' ? 'Eletricista' : 
-                      servicoKey === 'manutencao-eletronica' ? 'Técnico em Eletrônica' : 'Encanador e Desentupidora';
-  const servicoNome = `${popularTerm} (${servicoBase})`;
+  const popularTerm = servicoKey === 'manutencao-eletrica' ? 'Eletricista' :
+                      servicoKey === 'manutencao-eletronica' ? 'Técnico em Eletrônica' :
+                      servicoKey === 'manutencao-hidraulica' ? 'Manutenção Hidráulica' : 'Encanador e Desentupidora';
+  const servicoNome = servicoKey === 'manutencao-hidraulica'
+    ? popularTerm
+    : `${popularTerm} (${servicoBase})`;
   const localidadeData = getLocalidadeBySlug(localidadeSlug);
 
   if (!localidadeData) {
@@ -332,9 +369,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const { nome: localidadeNome, uf, foco } = localidadeData;
+  const isHydraulic = servicoKey === 'manutencao-hidraulica';
 
-  const title = `${popularTerm} em ${localidadeNome} | Atendimento ${uf} | CNSOUSATEC`;
-  const description = `${popularTerm} em ${localidadeNome}, ${uf}: ${servicoBase} para residências e empresas, com equipe local e orçamento expresso. Fale com a CNSOUSATEC agora.`;
+  const title = isHydraulic
+    ? `Manutenção hidráulica em ${localidadeNome} | CNSOUSATEC`
+    : `${popularTerm} em ${localidadeNome} | Atendimento ${uf} | CNSOUSATEC`;
+  const description = isHydraulic
+    ? `Manutenção hidráulica em ${localidadeNome}, ${uf}: informe vazamentos, entupimentos ou reparos em tubulações e confirme a disponibilidade da equipe. Fale com a CNSOUSATEC.`
+    : `${popularTerm} em ${localidadeNome}, ${uf}: ${servicoBase} para residências e empresas, com equipe local e orçamento expresso. Fale com a CNSOUSATEC agora.`;
 
   return {
     props: {
