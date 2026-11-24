@@ -1,301 +1,208 @@
+import Link from 'next/link';
 import SEO from '../../components/SEO';
 import Header from '../../components/Header';
-import ServiceSchema from '../../components/ServiceSchema';
-import Breadcrumbs from '../../components/Breadcrumbs';
 import Footer from '../../components/Footer';
-import { motion } from 'framer-motion';
-import { Wrench, CheckCircle, Droplet, Shield, Clock } from 'lucide-react';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import ServiceSchema from '../../components/ServiceSchema';
+import FAQ from '../../components/FAQ';
+import { CheckCircle, Droplet, Phone, Wrench } from 'lucide-react';
 import { CustomWhatsAppCta } from '../../components/cro/WhatsAppCta';
 import { PhoneCta } from '../../components/cro/PhoneCta';
-import Link from 'next/link';
+
+const canonical = 'https://www.cnsousatec.com.br/servicos/manutencao-hidraulica';
+const whatsappMessage = 'Olá! Preciso de manutenção hidráulica em Brasília ou no Entorno. O problema ou serviço é: ____. O imóvel fica em: ____. Gostaria de verificar a disponibilidade e solicitar orientação.';
+
+const serviceRoutes = [
+  {
+    href: '/servicos/encanador',
+    title: 'Encanador para reparos',
+    description: 'Registros, torneiras, sifões, válvulas, conexões e outros reparos pontuais.',
+  },
+  {
+    href: '/servicos/caca-vazamentos',
+    title: 'Caça-vazamentos',
+    description: 'Investigação de umidade, consumo anormal e suspeita de vazamento oculto.',
+  },
+  {
+    href: '/servicos/desentupimento',
+    title: 'Desentupimento',
+    description: 'Avaliação de pias, ralos, vasos, caixas de gordura e redes com obstrução.',
+  },
+  {
+    href: '/servicos/instalacao-hidraulica',
+    title: 'Instalação hidráulica',
+    description: 'Novos pontos, reformas, adequações de água, esgoto e tubulações.',
+  },
+  {
+    href: '/servicos/manutencao-hidraulica-predial',
+    title: 'Manutenção predial',
+    description: 'Atendimento para condomínios, empresas, lojas e edifícios.',
+  },
+];
+
+const serviceAreas = [
+  {
+    title: 'Residências',
+    description: 'Orientação para vazamentos, baixa pressão, registros, torneiras, descargas e pontos de consumo.',
+  },
+  {
+    title: 'Comércios e empresas',
+    description: 'Avaliação de ocorrências hidráulicas que podem afetar o funcionamento do imóvel e a rotina da equipe.',
+  },
+  {
+    title: 'Condomínios e edifícios',
+    description: 'Solicitações para áreas comuns, reservatórios, bombas, registros e redes hidráulicas prediais.',
+  },
+];
 
 export default function ManutencaoHidraulica() {
-  const whatsappMessage = 'Olá! Preciso de manutenção hidráulica em Brasília ou no Entorno. O problema ou serviço é: ____. O imóvel fica em: ____. Gostaria de verificar a disponibilidade e solicitar orientação.';
-
   return (
     <>
       <SEO
-        title="Encanador e Caça-Vazamentos 24h no DF | CNSOUSATEC"
-        description="Encanador 24h em Brasília e Entorno para vazamentos, desentupimento e reparos hidráulicos. Atendimento rápido e orçamento expresso. Ligue agora."
-        canonical="https://www.cnsousatec.com.br/servicos/manutencao-hidraulica"
+        title="Manutenção hidráulica em Brasília e no Entorno | CNSOUSATEC"
+        description="Manutenção hidráulica para residências, comércios, empresas e condomínios em Brasília e no Entorno. Relate o problema e confirme a disponibilidade pelo WhatsApp."
+        canonical={canonical}
       />
-      <ServiceSchema 
-        name="Encanador 24h Brasília e Águas Lindas"
+      <ServiceSchema
+        name="Manutenção hidráulica em Brasília e no Entorno"
         serviceSlug="manutencao-hidraulica"
-        canonicalUrl="https://www.cnsousatec.com.br/servicos/manutencao-hidraulica"
-        description="Serviços de encanador de emergência, caça vazamentos e desentupimento em Brasília, Águas Lindas de Goiás e todo o Entorno."
-        serviceType="Plumbing Service"
-        areaServed={['Brasília', 'Taguatinga', 'Águas Claras', 'Guará', 'Sudoeste', 'Asa Norte', 'Asa Sul', 'Águas Lindas de Goiás', 'Jardim Brasília', 'Mansões Centro']}
+        canonicalUrl={canonical}
+        description="Avaliação e manutenção de instalações hidráulicas para imóveis residenciais, comerciais e prediais em Brasília, no Distrito Federal e em Águas Lindas - GO."
+        serviceType="Manutenção hidráulica"
+        areaServed={['Brasília', 'Distrito Federal', 'Entorno do Distrito Federal', 'Águas Lindas - GO']}
       />
 
       <Header />
-
       <main>
         <div className="container mx-auto px-4">
-          <Breadcrumbs items={[{ label: 'Manutenção Hidráulica', href: '/servicos/manutencao-hidraulica' }]} />
+          <Breadcrumbs items={[{ label: 'Manutenção hidráulica', href: '/servicos/manutencao-hidraulica' }]} />
         </div>
-        {/* Hero Section */}
+
         <section className="bg-gradient-to-br from-cyan-600 to-cyan-800 text-white py-16">
           <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <div className="bg-cyan-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Wrench className="w-10 h-10" />
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-cyan-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+                <Droplet className="w-10 h-10" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Manutenção Hidráulica Profissional em Brasília
-              </h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Manutenção hidráulica em Brasília e no Entorno</h1>
               <p className="text-xl text-cyan-100 mb-8">
-                Serviços completos em sistemas hidráulicos, tubulações e instalações prediais para empresas e condomínios no Distrito Federal
+                Avaliação de vazamentos, pressão, registros, tubulações e outros problemas hidráulicos conforme as informações do imóvel e a disponibilidade da equipe.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <CustomWhatsAppCta
-                  message={whatsappMessage}
-                  service="manutencao-hidraulica"
-                  placement="hydraulic_main_hero"
-                >
+                <CustomWhatsAppCta message={whatsappMessage} service="manutencao-hidraulica" placement="hydraulic_hub_hero">
                   Falar sobre meu problema hidráulico
                 </CustomWhatsAppCta>
                 <PhoneCta
                   service="manutencao-hidraulica"
-                  placement="hydraulic_main_hero"
+                  placement="hydraulic_hub_hero"
                   className="inline-flex items-center rounded-lg border-2 border-white px-5 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
                 >
-                  Ligar para atendimento hidráulico
+                  <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
+                  Ligar para orientação
                 </PhoneCta>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Conteúdo Principal */}
-        <section className="py-16 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-                  Serviços Especializados em Manutenção Hidráulica
-                </h2>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A <strong>Cnsousatec</strong> é referência em serviços de manutenção hidráulica no Distrito Federal, oferecendo soluções completas para empresas, condomínios, prédios comerciais e estabelecimentos de diversos segmentos. Nossa equipe de profissionais qualificados está preparada para atender desde pequenos reparos até grandes projetos de instalação e reforma de sistemas hidráulicos.
-                </p>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Sabemos que problemas hidráulicos podem causar transtornos significativos, desde vazamentos que aumentam o consumo de água até interrupções no abastecimento que afetam as operações diárias. Por isso, trabalhamos com agilidade, eficiência e utilizando materiais de primeira qualidade, garantindo soluções duradouras e em conformidade com as normas técnicas da ABNT.
-                </p>
-
-                <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">
-                  Nossos Serviços de Manutenção Hidráulica
-                </h2>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Detecção e Reparo de Vazamentos</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Identificação precisa de vazamentos com equipamentos especializados e reparo rápido.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Instalações Hidráulicas</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Projetos e execução de instalações hidráulicas completas para novos empreendimentos.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Desentupimento</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Desentupimento de pias, ralos, vasos sanitários, colunas e redes de esgoto.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Manutenção de Caixas d&apos;Água</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Limpeza, higienização e reparo de caixas d&apos;água e reservatórios.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Troca de Registros e Torneiras</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Substituição e instalação de registros, torneiras, válvulas e conexões.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white">Sistemas de Recalque</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        Instalação e manutenção de bombas de recalque e pressurizadores.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">
-                  Por Que Escolher a Cnsousatec?
-                </h2>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A escolha de um prestador de serviços hidráulicos de confiança é fundamental para garantir a qualidade do trabalho e evitar problemas futuros. A Cnsousatec se destaca no mercado por oferecer um serviço completo, desde o diagnóstico até a execução e o pós-venda, sempre com foco na satisfação do cliente.
-                </p>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
-                  <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                    <Droplet className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-4" />
-                    <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">Economia de Água</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Identificamos e corrigimos vazamentos, reduzindo o desperdício e os custos com água.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                    <Clock className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-4" />
-                    <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">Atendimento Emergencial</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Equipe disponível para atendimentos urgentes, minimizando danos e transtornos.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                    <Shield className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-4" />
-                    <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">Materiais de Qualidade</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Utilizamos apenas materiais certificados e de marcas reconhecidas no mercado.
-                    </p>
-                  </div>
-                </div>
-
-                <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">
-                  Manutenção Hidráulica Predial
-                </h2>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A manutenção hidráulica predial é essencial para garantir o bom funcionamento das instalações de água e esgoto em edifícios comerciais, condomínios e empresas. Problemas como vazamentos, entupimentos e baixa pressão de água podem afetar o conforto dos usuários e causar danos à estrutura do imóvel. A Cnsousatec oferece planos de manutenção preventiva que incluem inspeções periódicas, limpeza de caixas d&apos;água, verificação de bombas e registros, e identificação precoce de problemas.
-                </p>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Nossa equipe está capacitada para trabalhar em prédios de todos os portes, respeitando as normas de segurança e minimizando o impacto nas atividades diárias dos ocupantes. Realizamos serviços de troca de tubulações antigas, adequação de sistemas hidráulicos às normas vigentes, instalação de sistemas de reuso de água, e muito mais.
-                </p>
-
-                <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">
-                  Detecção de Vazamentos com Tecnologia
-                </h2>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Vazamentos ocultos são um dos principais vilões do desperdício de água e podem causar danos estruturais graves se não forem detectados a tempo. A Cnsousatec utiliza equipamentos de última geração para detecção de vazamentos, incluindo geofones eletrônicos, correlacionadores de ruído e câmeras termográficas. Essas tecnologias permitem identificar vazamentos em tubulações enterradas, embutidas em paredes ou sob pisos, sem a necessidade de quebras desnecessárias.
-                </p>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Após a detecção precisa do vazamento, nossa equipe realiza o reparo com técnicas modernas e minimamente invasivas, restaurando a integridade do sistema hidráulico e evitando desperdícios. Esse serviço é especialmente importante para condomínios e empresas que desejam reduzir custos com água e preservar o meio ambiente.
-                </p>
-
-                <h2 className="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">
-                  Atendimento em Todo o Distrito Federal
-                </h2>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  A Cnsousatec atende todas as regiões administrativas do Distrito Federal, incluindo Brasília, Taguatinga, Ceilândia, Samambaia, Águas Claras, Guará, Sobradinho, Planaltina, Gama e demais localidades. Nossa frota está estrategicamente posicionada para garantir atendimento rápido e eficiente em qualquer região.
-                </p>
-
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  Seja para uma pequena manutenção ou um grande projeto de instalação hidráulica, estamos prontos para atender sua necessidade com excelência, pontualidade e preços competitivos. Entre em contato conosco e solicite um orçamento sem compromisso. Nossa equipe de atendimento está pronta para esclarecer todas as suas dúvidas e oferecer a melhor solução para o seu caso.
-                </p>
-              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-cyan-600 dark:bg-cyan-900 text-white py-16 transition-colors duration-300">
-          <div className="container mx-auto px-4 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Precisa de Manutenção Hidráulica?
-              </h2>
-              <p className="text-xl mb-8 text-cyan-100">
-                Entre em contato agora e receba um orçamento personalizado
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="max-w-3xl mb-12">
+              <h2 className="text-3xl font-bold mb-5 text-gray-900 dark:text-white">Qual problema hidráulico você precisa avaliar?</h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                A manutenção começa pela compreensão do sintoma. Informe a região, o tipo de imóvel, o ambiente afetado e quando o problema começou. Com essas informações, a equipe pode orientar o próximo passo e confirmar se há disponibilidade para uma avaliação.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <CustomWhatsAppCta
-                  message={whatsappMessage}
-                  service="manutencao-hidraulica"
-                  placement="hydraulic_main_bottom"
-                >
-                  Solicitar avaliação hidráulica
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5 mb-16">
+              {[
+                'Vazamento aparente, manchas ou sinais de infiltração',
+                'Baixa pressão, falta de água ou retorno de água',
+                'Registro, torneira, sifão, descarga ou válvula com defeito',
+                'Tubulação, conexões ou pontos de consumo para reparar',
+                'Entupimento em pia, ralo, vaso sanitário ou caixa de gordura',
+                'Adequação hidráulica durante reforma ou mudança de ambiente',
+              ].map((item) => (
+                <div key={item} className="flex gap-3 rounded-lg border border-gray-200 dark:border-gray-700 p-5">
+                  <CheckCircle className="w-6 h-6 text-cyan-600 dark:text-cyan-400 flex-shrink-0 mt-1" aria-hidden="true" />
+                  <p className="text-lg text-gray-700 dark:text-gray-300">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Escolha o atendimento mais próximo do seu problema</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+              Use o serviço específico quando já souber o tipo de ocorrência. Isso ajuda a enviar informações mais objetivas no primeiro contato.
+            </p>
+            <div className="grid md:grid-cols-2 gap-5 mb-16">
+              {serviceRoutes.map((route) => (
+                <Link key={route.href} href={route.href} className="rounded-xl border border-cyan-100 dark:border-gray-700 bg-cyan-50 dark:bg-gray-800 p-6 hover:border-cyan-400 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-cyan-800 dark:text-cyan-200">{route.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300">{route.description}</p>
+                </Link>
+              ))}
+            </div>
+
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Atendimento conforme o tipo de imóvel</h2>
+            <div className="grid md:grid-cols-3 gap-5 mb-16">
+              {serviceAreas.map((area) => (
+                <div key={area.title} className="rounded-xl bg-gray-50 dark:bg-gray-800 p-6">
+                  <Wrench className="w-9 h-9 text-cyan-600 dark:text-cyan-400 mb-4" aria-hidden="true" />
+                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{area.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300">{area.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-xl bg-cyan-50 dark:bg-gray-800 border border-cyan-100 dark:border-gray-700 p-6 md:p-8 mb-16">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Como preparar o contato</h2>
+              <ul className="list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300">
+                <li>Informe a cidade, bairro ou região e o tipo de imóvel.</li>
+                <li>Descreva o sintoma: vazamento, entupimento, pressão, registro, tubulação ou instalação.</li>
+                <li>Se for seguro, envie foto ou vídeo do ponto afetado; não desmonte instalações pressurizadas.</li>
+                <li>Em ocorrências próximas a eletricidade e água, priorize a segurança e informe a situação à equipe.</li>
+              </ul>
+              <div className="mt-6">
+                <CustomWhatsAppCta message={whatsappMessage} service="manutencao-hidraulica" placement="hydraulic_hub_guidance">
+                  Enviar detalhes pelo WhatsApp
                 </CustomWhatsAppCta>
-                <PhoneCta
-                  service="manutencao-hidraulica"
-                  placement="hydraulic_main_bottom"
-                  className="inline-flex items-center rounded-lg border-2 border-white px-5 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
-                >
-                  Ligar agora
-                </PhoneCta>
               </div>
-            </motion.div>
+            </div>
+
+            <FAQ
+              title="Dúvidas sobre manutenção hidráulica"
+              items={[
+                {
+                  question: 'A manutenção hidráulica atende quais problemas?',
+                  answer: 'A solicitação pode envolver vazamentos, baixa pressão, registros, torneiras, descargas, tubulações, conexões, entupimentos e adequações. O escopo depende das informações do chamado e da avaliação necessária.',
+                },
+                {
+                  question: 'Qual a diferença entre manutenção e caça-vazamentos?',
+                  answer: 'A caça-vazamentos concentra-se em investigar a origem de sinais como umidade ou consumo anormal. A manutenção hidráulica é mais ampla e pode incluir reparos, substituição de componentes e adequações.',
+                },
+                {
+                  question: 'Atendem condomínios e empresas?',
+                  answer: 'Sim, a solicitação pode ser avaliada para condomínios, empresas, lojas e outros imóveis. Informe o tipo de imóvel, a área afetada e a urgência para confirmar a disponibilidade.',
+                },
+                {
+                  question: 'O que preciso enviar para solicitar orientação?',
+                  answer: 'Envie a região, o tipo de imóvel, o problema observado e, quando for seguro, fotos ou vídeos. O orçamento e o prazo dependem do diagnóstico e das condições do atendimento.',
+                },
+              ]}
+            />
           </div>
         </section>
 
-        <section className="py-12 bg-gray-50 dark:bg-gray-800">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Encontre o atendimento hidráulico adequado</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Escolha a página mais próxima do problema que você precisa resolver para enviar informações mais específicas à equipe.
-            </p>
-            <nav aria-label="Serviços hidráulicos específicos">
-              <ul className="grid sm:grid-cols-3 gap-4">
-                {[
-                  ['/servicos/encanador', 'Encanador'],
-                  ['/servicos/caca-vazamentos', 'Caça-vazamentos'],
-                  ['/servicos/desentupimento', 'Desentupimento'],
-                  ['/servicos/instalacao-hidraulica', 'Instalação hidráulica'],
-                  ['/servicos/manutencao-hidraulica-predial', 'Manutenção predial'],
-                ].map(([href, label]) => (
-                  <li key={href}>
-                    <Link href={href} className="block rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 font-semibold text-cyan-700 dark:text-cyan-300 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+        <section className="bg-cyan-700 text-white py-16">
+          <div className="container mx-auto px-4 text-center max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Precisa avaliar um problema hidráulico?</h2>
+            <p className="text-xl mb-8 text-cyan-100">Envie a região e os detalhes do imóvel para verificar a disponibilidade do atendimento.</p>
+            <CustomWhatsAppCta message={whatsappMessage} service="manutencao-hidraulica" placement="hydraulic_hub_bottom">
+              Solicitar orientação hidráulica
+            </CustomWhatsAppCta>
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );

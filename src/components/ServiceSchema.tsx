@@ -15,7 +15,7 @@ const logoUrl = `${siteUrl}/CNSOUSATEC-logo-restored.png`;
 const serviceAreaDescription = [
   { '@type': 'AdministrativeArea', name: 'Distrito Federal' },
   { '@type': 'AdministrativeArea', name: 'Entorno do Distrito Federal' },
-  { '@type': 'City', name: 'Águas Lindas de Goiás' },
+  { '@type': 'City', name: 'Águas Lindas - GO' },
 ];
 
 function safeJsonLd(value: unknown) {
@@ -70,12 +70,6 @@ export default function ServiceSchema({
           latitude: -15.7939,
           longitude: -47.8828,
         },
-        openingHoursSpecification: [{
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-          opens: '00:00',
-          closes: '23:59',
-        }],
         areaServed: serviceAreaDescription,
       },
       {
